@@ -1,0 +1,239 @@
+
+<!doctype html>
+
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <title>Its been awhile</title>
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <style>
+		/* Styl akordów i elementów specjalnych */
+		.highlight {
+		  background-color: lemonchiffon;
+		  font-weight: bold;
+		}
+		.chord {
+		  font-weight: bold;
+		  color: #b3003b;
+		  position: relative;
+		  z-index: 1;
+		}
+		#tab {
+		  font-size: 100%;
+		  font-family: Verdana, Tahoma, sans-serif;
+		}
+		#options a {
+		  text-decoration: underline;
+		}
+
+		/* Pasek opcji u góry (sticky) */
+		.sticky {
+		  position: fixed;
+		  top: 0;
+		  margin-top: 0 !important;
+		  left: 0;
+		  padding: 0px 0px;
+		  width: 100%;
+		  border-bottom: 1px solid #cfd8dc;
+		}
+
+		/* Sekcje piosenki */
+		.section {
+		  position: relative;
+		  padding: 1rem 0.5rem;
+		  margin-bottom: 1rem;
+		  border-radius: 0.5rem;
+		  z-index: 1;
+		  overflow: hidden;
+		}
+
+		/* Tylko bezpieczne ustawienie pozycji dla dzieci */
+		.section > * {
+		  position: relative;
+		}
+
+		/* Kolory tła dla sekcji */
+		.section.verse        { background-color: #ffffff; }
+		.section.intro        { background-color: #ffffff; }
+		.section.chorus       { background-color: #ddd4d8; }  
+		.section.bridge       { background-color: #e6d1cc; }  
+		.section.prechorus    { background-color: #e9e2e5;; }  
+		.section.break        { background-color: #ffe0cc; }  
+		.section.instrumental {
+		  background-color: #f7f0ee;
+		  font-style: italic;
+		}
+		.section.outro        { background-color: #ffffff; }
+		.section.hook         {
+		  background-color: #ffe0f0;
+		  font-weight: bold;
+		}
+		.section.section-a    { background-color: #fafafa; }
+		.section.section-b    { background-color: #f5f5f5; }
+		.section.end          { background-color: #ffffff; }
+
+		/* Duży numer zwrotki jako tło */
+		.section.verse[data-verse]::before {
+		  content: attr(data-verse);
+		  position: absolute;
+		  inset: 0;
+		  display: flex;
+		  align-items: center;
+		  justify-content: center;
+		  font-family: 'Impact', 'Arial Black', sans-serif;
+		  font-weight: bold;
+		  font-size: 30em;
+		  line-height: 1;
+		  color: rgba(120, 20, 20, 0.06); /* stonowany burgundowy cień */
+		  z-index: 0;
+		  pointer-events: none;
+		  white-space: nowrap;
+		  text-align: center;
+		}
+    </style>
+
+</head>
+<body data-duration = 6.5>
+
+
+<header class="container">
+    <div class="m-2 mb-4 text-center">
+		Śpiewnik Roboczy
+        <!--img src="/images/ukulele-krakow.png" class="img-fluid" alt="Krakow Ukulele" width="200">-->
+    </div>
+</header>
+
+<div class="container">
+    <div class="row justify-content-center">
+        
+<div class="col-lg-8 col-md-10 col-sm-12 my-3">
+
+    <h3 class="song-title">
+        #10 Its been awhile
+    </h3>
+    
+    <!--<h5 class="song-artist">
+        Stained
+    </h5>
+
+    <h5>
+        Level: 
+        <span class="badge rounded-pill badge- text-white"></span>
+    </h5
+    
+    -->
+
+   <div class="mt-4" style="overflow-x: auto;">
+    
+        <img src="/chords/D.gif" alt="D" title="D" />
+    
+        <img src="/chords/Am.gif" alt="Am" title="Am" />
+    
+        <img src="/chords/C.gif" alt="C" title="C" />
+    
+        <img src="/chords/Dsus2.gif" alt="Dsus2" title="Dsus2" />
+    
+        <img src="/chords/G.gif" alt="G" title="G" />
+    
+        <img src="/chords/Asus4.gif" alt="Asus4" title="Asus4" />
+    
+</div>
+	<!--<div id="infoBox" style="position: fixed; right: 20px; top: 20px; border: 1px solid black; padding: 10px;">
+		<p id="heightInfo"></p>
+		<p id="scrollTimeStepInfo"></p>
+		<p id="songDuration"></p>
+	</div>-->
+	<div id="floatingButton" style="position: fixed; right: 20px; bottom: 20px; z-index: 9999;">
+		<button id="myButton" onclick="toggleButton()" type="button" class="btn btn-light">
+			<img id="buttonImage" src="images/pause2.gif">
+		</button>
+	</div>
+    
+    <div id="tab">
+        <div class="section"><br/><br/><br/><br/><br/><small><i>(Intro)<span style="color: purple;"> Paweł starts</span></i></small><br/><span class="chord">[Asus4]</span>    <span class="chord">[C]</span>    <span class="chord">[G]</span>    <span class="chord">[Dsus2]</span>    <small><b>x2</b></small> <br/><br/></div><div class="section verse" data-verse="1"><small><i>Verse 1</i></small><span style="color: purple;"> no ukes</span><br/><span class="chord">[Asus4]</span> It's been awhile <span class="chord">[C]</span> since I could - <br/><span class="chord">[G]</span> ... <span class="chord">[Dsus2]</span> hold my head up high<br/><span class="chord">[Asus4]</span> It's been awhile <span class="chord">[C]</span> since I first saw <br/><span class="chord">[G]</span> you  ... <span class="chord">[Dsus2]</span> ...<br/><span class="chord">[Asus4]</span> It's been awhile <span class="chord">[C]</span> since I could stand <br/><span class="chord">[G]</span> on my own <span class="chord">[Dsus2]</span> two feet again<br/><span class="chord">[Asus4]</span> It's been awhile <span class="chord">[C]</span> since I could call <br/><span class="chord">[G]</span> you ... <span class="chord">[Dsus2]</span> ...<br/><br/></div><div class="section chorus"><small><i>Chorus</i></small><br/><span class="chord">[Am]</span> And <span class="chord">[C]</span> everything I can't <span class="chord">[G]</span> remember  ... <span class="chord">[D]</span> ...<br/><span class="chord">[Am]</span> As fucked up as <span class="chord">[C]</span> it all may <span class="chord">[G]</span> seem ... <span class="chord">[D]</span> ...<br/><span class="chord">[Am]</span> The <span class="chord">[C]</span> consequences that I've <span class="chord">[G]</span> rendered ... <span class="chord">[D]</span> ...<br/><span class="chord">[Am]</span> I stretched <span class="chord">[C]</span> myself beyond my <span class="chord">[G]</span> means ...<span class="chord">[D]</span> ...<br/><br/></div><div class="section verse" data-verse="2"><small><i>Verse 2</i></small><span style="color: purple;"> no ukes</span><br/><span class="chord">[Asus4]</span> It's been awhile <span class="chord">[C]</span> since I couldn't say <br/><span class="chord">[G]</span> that I <span class="chord">[Dsus2]</span> wasn't addicted and<br/><span class="chord">[Asus4]</span> It's been awhile <span class="chord">[C]</span> since I couldn't say <br/>I <span class="chord">[G]</span> love myself <span class="chord">[Dsus2]</span> as well as<br/><span class="chord">[Asus4]</span> It's been awhile <span class="chord">[C]</span> since I've gone and <br/><span class="chord">[G]</span> fucked things up just like <span class="chord">[Dsus2]</span> I always do<br/><span class="chord">[Asus4]</span> It's been awhile but <span class="chord">[C]</span> all that shit <br/><span class="chord">[G]</span> seems to disappear <span class="chord">[Dsus2]</span> when I'm with you<br/><br/></div><div class="section chorus"><small><i>Chorus</i></small><br/><span class="chord">[Am]</span> And <span class="chord">[C]</span> everything I can't <span class="chord">[G]</span> remember  ... <span class="chord">[D]</span> ...<br/><span class="chord">[Am]</span> As fucked up as <span class="chord">[C]</span> it all may <span class="chord">[G]</span> seem ... <span class="chord">[D]</span> ...<br/><span class="chord">[Am]</span> The <span class="chord">[C]</span> consequences that I've <span class="chord">[G]</span> rendered ... <span class="chord">[D]</span> ...<br/><span class="chord">[Am]</span> I've gone and <span class="chord">[C]</span> fucked things up <span class="chord">[G]</span> again, yeah <span class="chord">[D]</span> ...<br/><br/></div><div class="section bridge"><small><i>Bridge</i></small><br/><span class="chord">[G]</span>  ... <span class="chord">[D]</span> ...<br/><span class="chord">[Am]</span> Why must I <span class="chord">[Am]</span> feel this way <br/><span class="chord">[G]</span> ... <span class="chord">[D]</span> ...<br/><span class="chord">[Am]</span> Just make this <span class="chord">[Am]</span>go away <br/><span class="chord">[G]</span> ... <span class="chord">[D]</span> ...<br/><span class="chord">[Am]</span> Just one more <span class="chord">[Am]</span>  peaceful day <br/><span class="chord">[G]</span> ... <span class="chord">[D]</span> ...   <br/><span class="chord">[Am]</span> ...<br/><br/></div><div class="section verse" data-verse="3"><small><i>Verse 3</i></small><span style="color: purple;"> no ukes</span><br/><span class="chord">[Asus4]</span> It's been awhile <span class="chord">[C]</span> since I could - <br/><span class="chord">[G]</span> look <span class="chord">[Dsus2]</span> at myself straight<br/><span class="chord">[Asus4]</span> It's been awhile <span class="chord">[C]</span> since I said I'm sorry <br/><span class="chord">[G]</span> ... <span class="chord">[Dsus2]</span> ...<br/><span class="chord">[Asus4]</span> It's been awhile <span class="chord">[C]</span> since I've seen <br/><span class="chord">[G]</span> the way ...<span class="chord">[Dsus2]</span> candles light your face<br/><span class="chord">[Asus4]</span> It's been awhile <span class="chord">[C]</span> but I can <span class="chord">[G]</span> still  remember <span class="chord">[Dsus2]</span> just  the way you <span class="chord">[Am]</span>taste<br/><br/></div><div class="section chorus"><small><i>Chorus</i></small><br/>(<span class="chord">[Am]</span>) And <span class="chord">[C]</span> everything I can't <span class="chord">[G]</span> remember <span class="chord">[D]</span> ...<br/><span class="chord">[Am]</span> As fucked up as <span class="chord">[C]</span> it all may <span class="chord">[G]</span> seem .. to be I <span class="chord">[D]</span> know  <br/><span class="chord">[Am]</span> it's me .. I cannot <span class="chord">[C]</span> blame this on my <span class="chord">[G]</span> father <span class="chord">[D]</span> ...<br/><span class="chord">[Am]</span> He did the <span class="chord">[C]</span> best he could for me  <span class="chord">[G]</span> ... <span class="chord">[D]</span> ...<br/><br/></div><div class="section outro"><small><i>Outro</i></small><span style="color: purple;"> no ukes</span><br/><span class="chord">[Asus4]</span> It's been awhile <span class="chord">[C]</span> since I could - <span class="chord">[G]</span> hold my <span class="chord">[Dsus2]</span> head up high<br/><span class="chord">[Asus4]</span> It's been awhile <span class="chord">[C]</span> since I said I'm sorry <span class="chord">[G]</span> ...<br/><span class="chord">[Asus4]</span>    <span class="chord">[C]</span>    <span class="chord">[G]</span>    <span class="chord">[Dsus2]</span>    <br/><span class="chord">[Asus4]</span>    <span class="chord">[C]</span>    <span class="chord">[G]</span>    <span class="chord">[Dsus2]</span>   <br/><br/><br/><a href="Loneliest.html" name="05"><br/>						Loneliest<br/>						</a></div>
+    </div>
+
+    <div id="options" class="mt-4">
+        <ul class="list-unstyled">
+            <li><a href="index.html"><strong>← Back</strong></a></li>
+         
+        </ul>
+    </div>
+
+    <hr/>
+			
+    <!--<div class="m-2 my-4 text-center">
+        <img src="/images/qrcode.png" class="img-fluid" alt="QR Code" width="200">
+    </div>-->
+
+</div>
+
+    </div>
+</div>
+
+<script>
+var scrollInterval;
+var songDuration = 3.5;
+var scrollDuration = songDuration * 60 * 1000; // x min w milisekundach - w tym czasie stronama zostac przewinięta
+//var body = document.body,
+//    html = document.documentElement;
+//var height = Math.max( Math.max( body.scrollHeight, body.offsetHeight, html.clientHeight, html.scrollHeight, html.offsetHeight ) - window.innerHeight, 1);
+var height = document.getElementById('tab').clientHeight; //wysokość boxu div tab
+var scrollTimeStep =  scrollDuration / height; // czas co jaki ma być wywołana funkcja przewijania
+function toggleButton() {
+  if (scrollInterval) { //jeśli scrollInterval był ustawiony w trakcie wywołania funkcji to zmień obraz na pauzę i wyczyść go
+    document.getElementById('buttonImage').src = 'images/pause2.gif';
+    clearInterval(scrollInterval); // Zatrzymuje autoscrollowanie
+    scrollInterval = null;
+  } else { //w przeciwnym wypadku ustaw scroll interval i przewijaj chyba ze dotrzesz do końca strony
+    document.getElementById('buttonImage').src = 'images/play2.gif';
+    scrollInterval = setInterval(function() {
+      if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight) {
+        // Jeśli strona została przewinięta do końca, zatrzymaj autoscroll po 4 sekundach
+        setTimeout(function() {
+          document.getElementById('buttonImage').src = 'images/pause2.gif';
+          clearInterval(scrollInterval);
+          scrollInterval = null;
+        }, 4000);
+      } else {
+        window.scrollBy({top: 1, behavior: "instant"}); // Uruchamia autoscrollowanie
+      }
+		height = document.getElementById('tab').clientHeight; //tylko dla infoboxa
+		scrollTimeStep =  scrollDuration / height; 
+		// Aktualizuj wartości w infoBox
+		document.getElementById('heightInfo').textContent = 'Height: ' + height;
+		document.getElementById('scrollTimeStepInfo').textContent = 'Scroll Time Step: ' + scrollTimeStep;
+		document.getElementById('songDuration').textContent= 'songDuration:' + songDuration;
+    }, scrollTimeStep);
+  }
+}
+// Zatrzymaj autoscroll, gdy strona jest opuszczana
+window.addEventListener('beforeunload', function() {
+  if (scrollInterval) {
+    clearInterval(scrollInterval);
+  }
+});
+</script>
+<script>//numerowanie tła zwrotek
+document.addEventListener("DOMContentLoaded", function () {
+  document.querySelectorAll('.section.verse[data-verse]').forEach(section => {
+    const height = section.offsetHeight;
+    const fontSize = Math.floor(height * 0.8) + "px"; // np. 80% wysokości sekcji
+
+    // twórz dynamiczny styl na pseudo-element
+    const style = document.createElement("style");
+    style.innerHTML = `
+      .section.verse[data-verse="${section.dataset.verse}"]::before {
+        font-size: ${fontSize};
+      }
+    `;
+    document.head.appendChild(style);
+  });
+});
+</script>
+</body>
+</html>

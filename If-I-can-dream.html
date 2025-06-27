@@ -1,0 +1,261 @@
+
+<!doctype html>
+
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <title>If I can dream</title>
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <style>
+		/* Styl akordów i elementów specjalnych */
+		.highlight {
+		  background-color: lemonchiffon;
+		  font-weight: bold;
+		}
+		.chord {
+		  font-weight: bold;
+		  color: #b3003b;
+		  position: relative;
+		  z-index: 1;
+		}
+		#tab {
+		  font-size: 100%;
+		  font-family: Verdana, Tahoma, sans-serif;
+		}
+		#options a {
+		  text-decoration: underline;
+		}
+
+		/* Pasek opcji u góry (sticky) */
+		.sticky {
+		  position: fixed;
+		  top: 0;
+		  margin-top: 0 !important;
+		  left: 0;
+		  padding: 0px 0px;
+		  width: 100%;
+		  border-bottom: 1px solid #cfd8dc;
+		}
+
+		/* Sekcje piosenki */
+		.section {
+		  position: relative;
+		  padding: 1rem 0.5rem;
+		  margin-bottom: 1rem;
+		  border-radius: 0.5rem;
+		  z-index: 1;
+		  overflow: hidden;
+		}
+
+		/* Tylko bezpieczne ustawienie pozycji dla dzieci */
+		.section > * {
+		  position: relative;
+		}
+
+		/* Kolory tła dla sekcji */
+		.section.verse        { background-color: #ffffff; }
+		.section.intro        { background-color: #ffffff; }
+		.section.chorus       { background-color: #ddd4d8; }  
+		.section.bridge       { background-color: #e6d1cc; }  
+		.section.prechorus    { background-color: #e9e2e5;; }  
+		.section.break        { background-color: #ffe0cc; }  
+		.section.instrumental {
+		  background-color: #f7f0ee;
+		  font-style: italic;
+		}
+		.section.outro        { background-color: #ffffff; }
+		.section.hook         {
+		  background-color: #ffe0f0;
+		  font-weight: bold;
+		}
+		.section.section-a    { background-color: #fafafa; }
+		.section.section-b    { background-color: #f5f5f5; }
+		.section.end          { background-color: #ffffff; }
+
+		/* Duży numer zwrotki jako tło */
+		.section.verse[data-verse]::before {
+		  content: attr(data-verse);
+		  position: absolute;
+		  inset: 0;
+		  display: flex;
+		  align-items: center;
+		  justify-content: center;
+		  font-family: 'Impact', 'Arial Black', sans-serif;
+		  font-weight: bold;
+		  font-size: 30em;
+		  line-height: 1;
+		  color: rgba(120, 20, 20, 0.06); /* stonowany burgundowy cień */
+		  z-index: 0;
+		  pointer-events: none;
+		  white-space: nowrap;
+		  text-align: center;
+		}
+    </style>
+
+</head>
+<body data-duration = 7.0>
+
+
+<header class="container">
+    <div class="m-2 mb-4 text-center">
+		Śpiewnik Roboczy
+        <!--img src="/images/ukulele-krakow.png" class="img-fluid" alt="Krakow Ukulele" width="200">-->
+    </div>
+</header>
+
+<div class="container">
+    <div class="row justify-content-center">
+        
+<div class="col-lg-8 col-md-10 col-sm-12 my-3">
+
+    <h3 class="song-title">
+        #103 If I can dream
+    </h3>
+    
+    <!--<h5 class="song-artist">
+        Elvis Presley
+    </h5>
+
+    <h5>
+        Level: 
+        <span class="badge rounded-pill badge- text-white"></span>
+    </h5
+    
+    -->
+
+   <div class="mt-4" style="overflow-x: auto;">
+    
+        <img src="/chords/D7.gif" alt="D7" title="D7" />
+    
+        <img src="/chords/D.gif" alt="D" title="D" />
+    
+        <img src="/chords/A7.gif" alt="A7" title="A7" />
+    
+        <img src="/chords/E7.gif" alt="E7" title="E7" />
+    
+        <img src="/chords/Bm.gif" alt="Bm" title="Bm" />
+    
+        <img src="/chords/Dm.gif" alt="Dm" title="Dm" />
+    
+        <img src="/chords/Fsharpdim.gif" alt="Fsharpdim" title="Fsharpdim" />
+    
+        <img src="/chords/Am.gif" alt="Am" title="Am" />
+    
+        <img src="/chords/C.gif" alt="C" title="C" />
+    
+        <img src="/chords/G.gif" alt="G" title="G" />
+    
+        <img src="/chords/G7.gif" alt="G7" title="G7" />
+    
+        <img src="/chords/Dm7.gif" alt="Dm7" title="Dm7" />
+    
+        <img src="/chords/F.gif" alt="F" title="F" />
+    
+        <img src="/chords/A.gif" alt="A" title="A" />
+    
+        <img src="/chords/Em.gif" alt="Em" title="Em" />
+    
+        <img src="/chords/C7.gif" alt="C7" title="C7" />
+    
+        <img src="/chords/Gsharpdim.gif" alt="Gsharpdim" title="Gsharpdim" />
+    
+</div>
+	<!--<div id="infoBox" style="position: fixed; right: 20px; top: 20px; border: 1px solid black; padding: 10px;">
+		<p id="heightInfo"></p>
+		<p id="scrollTimeStepInfo"></p>
+		<p id="songDuration"></p>
+	</div>-->
+	<div id="floatingButton" style="position: fixed; right: 20px; bottom: 20px; z-index: 9999;">
+		<button id="myButton" onclick="toggleButton()" type="button" class="btn btn-light">
+			<img id="buttonImage" src="images/pause2.gif">
+		</button>
+	</div>
+    
+    <div id="tab">
+        <div class="section"><br/><br/><br/><br/><br/></div><div class="section intro"><small><i>Intro</i></small><br/><br/><span class="chord">[C]</span>  <span class="chord">[Am]</span>  <span class="chord">[C]</span>  <span class="chord">[Am]</span> <br/><br/><br/></div><div class="section verse"><small><i>Verse</i></small><br/><br/>There must be <span class="chord">[C]</span> lights burning <span class="chord">[Am]</span> brighter <span class="chord">[F]</span> somewhere<br/> <span class="chord">[G7]</span> ...<br/>Got to be <span class="chord">[C]</span> birds flying <span class="chord">[Am]</span> higher in a <span class="chord">[Dm]</span> sky more <span class="chord">[G7]</span> blue;<br/>If I can <span class="chord">[C]</span> dream of a <span class="chord">[C7]</span> better land, where <span class="chord">[F]</span> all my brothers walk <span class="chord">[E7]</span> hand in <span class="chord">[Am]</span> hand,<br/>Tell me <span class="chord">[C]</span> why - oh <span class="chord">[Am]</span> why - oh <span class="chord">[F]</span> why <span class="chord">[Dm7]</span> can't my <span class="chord">[C]</span> dreams <span class="chord">[Am]</span> come <span class="chord">[Dm7]</span> true? Oh <span class="chord">[G7]</span> why.<br/><br/><br/></div><div class="section verse"><small><i>Verse</i></small><br/><br/>There must be <span class="chord">[C]</span> peace and <span class="chord">[Am]</span> understanding <span class="chord">[F]</span> sometime,<br/> <span class="chord">[G7]</span> ...<br/>Strong winds of <span class="chord">[C]</span> promise that will <span class="chord">[Am]</span> blow away the <span class="chord">[Dm7]</span> doubt and <span class="chord">[G7]</span> fear,<br/><span class="chord">[G7]</span> If I can <span class="chord">[C]</span> dream of a <span class="chord">[C7]</span> warmer sun where <span class="chord">[F]</span> hope keeps shining on <span class="chord">[E7]</span> <span class="chord">[Am]</span> everyone,<br/>Tell me <span class="chord">[C]</span> why - oh <span class="chord">[Am]</span> why - oh <span class="chord">[F]</span> why won't that <span class="chord">[C]</span> sun <span class="chord">[G7]</span> <span class="chord">[F]</span><span class="chord">[C]</span>  ap-pear?   <span class="chord">[C]</span>    <br/> <span class="chord">[C7]</span> ...<br/><br/><br/></div><div class="section bridge"><small><i>Bridge</i></small><br/><br/><span class="chord">[F]</span> We're lost in a <span class="chord">[F#dim]</span> cloud <span class="chord">[C]</span> with too much of <span class="chord">[C7]</span> rain<br/><span class="chord">[F]</span> We're trapped in a <span class="chord">[F#dim]</span> world <span class="chord">[C]</span> that's troubled with <span class="chord">[C7]</span> pain,<br/><span class="chord">[F]</span> But as long as a <span class="chord">[F#dim]</span> man has the <span class="chord">[C]</span> strength <span class="chord">[E7]</span> to <span class="chord">[Am]</span> dream,<br/>He can <span class="chord">[D7]</span> redeem his soul, and <span class="chord">[G7]</span> fly (He can <span class="chord">[A]</span> fly)<br/><br/><br/></div><div class="section verse"><small><i>Verse</i></small><br/><br/>Deep in my <span class="chord">[D]</span> heart there's a <span class="chord">[Bm]</span> tremblin' <span class="chord">[G]</span> question.<br/> <span class="chord">[A7]</span> ...<br/>Still I am <span class="chord">[D]</span> sure that the <span class="chord">[Bm]</span> answer's gonna <span class="chord">[Em]</span> come <span class="chord">[A7]</span> somehow.<br/>Out there in the <span class="chord">[D]</span> dark there's a beckoning <span class="chord">[G]</span> candle, <span class="chord">[G#dim]</span> oh yeah<br/>And while I can <span class="chord">[D]</span> think, while I can <span class="chord">[Bm]</span> talk,<br/>While I can <span class="chord">[D]</span> stand, while I can <span class="chord">[Bm]</span> walk,<br/>While I can <span class="chord">[G]</span> dream, - please let my <span class="chord">[Em]</span> dream - come <span class="chord">[A]</span> true<br/>Right <span class="chord">[D]</span> now <br/> <span class="chord">[Bm]</span> ...<br/>Let it come true right <span class="chord">[D]</span> now  <br/> <span class="chord">[Bm]</span> ...<br/><br/>D G D</div>
+    </div>
+
+    <div id="options" class="mt-4">
+        <ul class="list-unstyled">
+            <li><a href="index.html"><strong>← Back</strong></a></li>
+         
+        </ul>
+    </div>
+
+    <hr/>
+			
+    <!--<div class="m-2 my-4 text-center">
+        <img src="/images/qrcode.png" class="img-fluid" alt="QR Code" width="200">
+    </div>-->
+
+</div>
+
+    </div>
+</div>
+
+<script>
+var scrollInterval;
+var songDuration = 3.5;
+var scrollDuration = songDuration * 60 * 1000; // x min w milisekundach - w tym czasie stronama zostac przewinięta
+//var body = document.body,
+//    html = document.documentElement;
+//var height = Math.max( Math.max( body.scrollHeight, body.offsetHeight, html.clientHeight, html.scrollHeight, html.offsetHeight ) - window.innerHeight, 1);
+var height = document.getElementById('tab').clientHeight; //wysokość boxu div tab
+var scrollTimeStep =  scrollDuration / height; // czas co jaki ma być wywołana funkcja przewijania
+function toggleButton() {
+  if (scrollInterval) { //jeśli scrollInterval był ustawiony w trakcie wywołania funkcji to zmień obraz na pauzę i wyczyść go
+    document.getElementById('buttonImage').src = 'images/pause2.gif';
+    clearInterval(scrollInterval); // Zatrzymuje autoscrollowanie
+    scrollInterval = null;
+  } else { //w przeciwnym wypadku ustaw scroll interval i przewijaj chyba ze dotrzesz do końca strony
+    document.getElementById('buttonImage').src = 'images/play2.gif';
+    scrollInterval = setInterval(function() {
+      if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight) {
+        // Jeśli strona została przewinięta do końca, zatrzymaj autoscroll po 4 sekundach
+        setTimeout(function() {
+          document.getElementById('buttonImage').src = 'images/pause2.gif';
+          clearInterval(scrollInterval);
+          scrollInterval = null;
+        }, 4000);
+      } else {
+        window.scrollBy({top: 1, behavior: "instant"}); // Uruchamia autoscrollowanie
+      }
+		height = document.getElementById('tab').clientHeight; //tylko dla infoboxa
+		scrollTimeStep =  scrollDuration / height; 
+		// Aktualizuj wartości w infoBox
+		document.getElementById('heightInfo').textContent = 'Height: ' + height;
+		document.getElementById('scrollTimeStepInfo').textContent = 'Scroll Time Step: ' + scrollTimeStep;
+		document.getElementById('songDuration').textContent= 'songDuration:' + songDuration;
+    }, scrollTimeStep);
+  }
+}
+// Zatrzymaj autoscroll, gdy strona jest opuszczana
+window.addEventListener('beforeunload', function() {
+  if (scrollInterval) {
+    clearInterval(scrollInterval);
+  }
+});
+</script>
+<script>//numerowanie tła zwrotek
+document.addEventListener("DOMContentLoaded", function () {
+  document.querySelectorAll('.section.verse[data-verse]').forEach(section => {
+    const height = section.offsetHeight;
+    const fontSize = Math.floor(height * 0.8) + "px"; // np. 80% wysokości sekcji
+
+    // twórz dynamiczny styl na pseudo-element
+    const style = document.createElement("style");
+    style.innerHTML = `
+      .section.verse[data-verse="${section.dataset.verse}"]::before {
+        font-size: ${fontSize};
+      }
+    `;
+    document.head.appendChild(style);
+  });
+});
+</script>
+</body>
+</html>

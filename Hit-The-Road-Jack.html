@@ -1,0 +1,235 @@
+
+<!doctype html>
+
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <title>Hit The Road Jack</title>
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <style>
+		/* Styl akordów i elementów specjalnych */
+		.highlight {
+		  background-color: lemonchiffon;
+		  font-weight: bold;
+		}
+		.chord {
+		  font-weight: bold;
+		  color: #b3003b;
+		  position: relative;
+		  z-index: 1;
+		}
+		#tab {
+		  font-size: 100%;
+		  font-family: Verdana, Tahoma, sans-serif;
+		}
+		#options a {
+		  text-decoration: underline;
+		}
+
+		/* Pasek opcji u góry (sticky) */
+		.sticky {
+		  position: fixed;
+		  top: 0;
+		  margin-top: 0 !important;
+		  left: 0;
+		  padding: 0px 0px;
+		  width: 100%;
+		  border-bottom: 1px solid #cfd8dc;
+		}
+
+		/* Sekcje piosenki */
+		.section {
+		  position: relative;
+		  padding: 1rem 0.5rem;
+		  margin-bottom: 1rem;
+		  border-radius: 0.5rem;
+		  z-index: 1;
+		  overflow: hidden;
+		}
+
+		/* Tylko bezpieczne ustawienie pozycji dla dzieci */
+		.section > * {
+		  position: relative;
+		}
+
+		/* Kolory tła dla sekcji */
+		.section.verse        { background-color: #ffffff; }
+		.section.intro        { background-color: #ffffff; }
+		.section.chorus       { background-color: #ddd4d8; }  
+		.section.bridge       { background-color: #e6d1cc; }  
+		.section.prechorus    { background-color: #e9e2e5;; }  
+		.section.break        { background-color: #ffe0cc; }  
+		.section.instrumental {
+		  background-color: #f7f0ee;
+		  font-style: italic;
+		}
+		.section.outro        { background-color: #ffffff; }
+		.section.hook         {
+		  background-color: #ffe0f0;
+		  font-weight: bold;
+		}
+		.section.section-a    { background-color: #fafafa; }
+		.section.section-b    { background-color: #f5f5f5; }
+		.section.end          { background-color: #ffffff; }
+
+		/* Duży numer zwrotki jako tło */
+		.section.verse[data-verse]::before {
+		  content: attr(data-verse);
+		  position: absolute;
+		  inset: 0;
+		  display: flex;
+		  align-items: center;
+		  justify-content: center;
+		  font-family: 'Impact', 'Arial Black', sans-serif;
+		  font-weight: bold;
+		  font-size: 30em;
+		  line-height: 1;
+		  color: rgba(120, 20, 20, 0.06); /* stonowany burgundowy cień */
+		  z-index: 0;
+		  pointer-events: none;
+		  white-space: nowrap;
+		  text-align: center;
+		}
+    </style>
+
+</head>
+<body data-duration = 4.0>
+
+
+<header class="container">
+    <div class="m-2 mb-4 text-center">
+		Śpiewnik Roboczy
+        <!--img src="/images/ukulele-krakow.png" class="img-fluid" alt="Krakow Ukulele" width="200">-->
+    </div>
+</header>
+
+<div class="container">
+    <div class="row justify-content-center">
+        
+<div class="col-lg-8 col-md-10 col-sm-12 my-3">
+
+    <h3 class="song-title">
+        #7 Hit The Road Jack
+    </h3>
+    
+    <!--<h5 class="song-artist">
+        Ray Charles
+    </h5>
+
+    <h5>
+        Level: 
+        <span class="badge rounded-pill badge- text-white"></span>
+    </h5
+    
+    -->
+
+   <div class="mt-4" style="overflow-x: auto;">
+    
+        <img src="/chords/G.gif" alt="G" title="G" />
+    
+        <img src="/chords/E7.gif" alt="E7" title="E7" />
+    
+        <img src="/chords/F.gif" alt="F" title="F" />
+    
+        <img src="/chords/Am.gif" alt="Am" title="Am" />
+    
+</div>
+	<!--<div id="infoBox" style="position: fixed; right: 20px; top: 20px; border: 1px solid black; padding: 10px;">
+		<p id="heightInfo"></p>
+		<p id="scrollTimeStepInfo"></p>
+		<p id="songDuration"></p>
+	</div>-->
+	<div id="floatingButton" style="position: fixed; right: 20px; bottom: 20px; z-index: 9999;">
+		<button id="myButton" onclick="toggleButton()" type="button" class="btn btn-light">
+			<img id="buttonImage" src="images/pause2.gif">
+		</button>
+	</div>
+    
+    <div id="tab">
+        <div class="section"><br/>   <br/>  <br/><br/></div><div class="section intro"><small><i>Intro</i></small><br/><span class="chord">[Am]</span> <span class="chord">[G]</span> <span class="chord">[F]</span> <span class="chord">[E7]</span>  *4  <br/><br/></div><div class="section chorus"><small><i>Chorus</i></small>  <br/>Hit the <span class="chord">[Am]</span> road <span class="chord">[G]</span> Jack <br/>and <span class="chord">[F]</span> don't you come <span class="chord">[E7]</span> back <br/>no <span class="chord">[Am]</span> more no <span class="chord">[G]</span> more <br/>no <span class="chord">[F]</span> more no <span class="chord">[E7]</span> more   <br/>Hit the <span class="chord">[Am]</span> road <span class="chord">[G]</span> Jack <br/>and <span class="chord">[F]</span> don't you come <span class="chord">[E7]</span> back <br/>no <span class="chord">[Am]</span> more <span class="chord">[G]</span>   <br/><b><i><span class="chord">[F]</span> What you <span class="chord">[E7]</span> say? </b></i> <br/><br/>Hit the <span class="chord">[Am]</span> road <span class="chord">[G]</span> Jack <br/>and <span class="chord">[F]</span> don't you come <span class="chord">[E7]</span> back <br/>no <span class="chord">[Am]</span> more no <span class="chord">[G]</span> more <br/>no <span class="chord">[F]</span> more no <span class="chord">[E7]</span> more   <br/>Hit <span class="chord">[Am]</span> the road <span class="chord">[G]</span> Jack <br/>and <span class="chord">[F]</span> don't you come <span class="chord">[E7]</span> back <br/>no <span class="chord">[Am]</span> more <span class="chord">[G]</span> <br/><span class="chord">[F]</span> <span class="chord">[E7]</span> <br/></div><div class="section verse" data-verse="1"><small><i>Verse 1</i></small>  <br/><b><i><br/>Whoa <span class="chord">[Am]</span> woman oh <span class="chord">[G]</span> woman <br/>don't <span class="chord">[F]</span> treat me so <span class="chord">[E7]</span> mean!   <br/>You're the <span class="chord">[Am]</span> meanest <span class="chord">[G]</span> woman <br/>that I've <span class="chord">[F]</span> ever <span class="chord">[E7]</span> seen   <br/>I <span class="chord">[Am]</span> guess if <span class="chord">[G]</span> you say <span class="chord">[F]</span> so.. <span class="chord">[E7]</span>   <br/>I'll <span class="chord">[Am]</span> have to pack my <span class="chord">[G]</span> things <br/>and <span class="chord">[F]</span> go </b></i><br/>That's <span class="chord">[E7]</span> right!<br/></div><div class="section chorus"><small><i>Chorus</i></small>  <br/>Hit the <span class="chord">[Am]</span> road <span class="chord">[G]</span> Jack <br/>and <span class="chord">[F]</span> don't you come <span class="chord">[E7]</span> back <br/>no <span class="chord">[Am]</span> more no <span class="chord">[G]</span> more <br/>no <span class="chord">[F]</span> more no <span class="chord">[E7]</span> more   <br/>Hit the <span class="chord">[Am]</span> road <span class="chord">[G]</span> Jack <br/>and <span class="chord">[F]</span> don't you come <span class="chord">[E7]</span> back <br/>no <span class="chord">[Am]</span> more <span class="chord">[G]</span>   <br/><b><i><span class="chord">[F]</span> What you <span class="chord">[E7]</span> say? </b></i> <br/><br/>Hit the <span class="chord">[Am]</span> road <span class="chord">[G]</span> Jack <br/>and <span class="chord">[F]</span> don't you come <span class="chord">[E7]</span> back <br/>no <span class="chord">[Am]</span> more no <span class="chord">[G]</span> more <br/>no <span class="chord">[F]</span> more no <span class="chord">[E7]</span> more   <br/>Hit <span class="chord">[Am]</span> the road <span class="chord">[G]</span> Jack <br/>and <span class="chord">[F]</span> don't you come <span class="chord">[E7]</span> back <br/>no <span class="chord">[Am]</span> more <span class="chord">[G]</span> <br/><span class="chord">[F]</span> <span class="chord">[E7]</span> <br/></div><div class="section verse" data-verse="2"><small><i>Verse 2</i></small><br/><b><i> <br/>Now <span class="chord">[Am]</span> baby listen <span class="chord">[G]</span> baby <br/>don't <span class="chord">[F]</span> treat me this <span class="chord">[E7]</span> way   <br/>For <span class="chord">[Am]</span> I'll be <span class="chord">[G]</span> back <br/>on my <span class="chord">[F]</span> feet some <span class="chord">[E7]</span> day  <br/></b></i><br/> <br/>Don't <span class="chord">[Am]</span> care if you <span class="chord">[G]</span> do <br/>cause it's <span class="chord">[F]</span> under<span class="chord">[E7]</span>stood,   <br/>You ain't got <span class="chord">[Am]</span> got no <span class="chord">[G]</span> money <br/>you <span class="chord">[F]</span> just ain't go <span class="chord">[E7]</span> good  <br/> <br/><b><i> <br/>Well I <span class="chord">[Am]</span> guess if <span class="chord">[G]</span> you say <span class="chord">[F]</span> so <span class="chord">[E7]</span>   <br/>I'll <span class="chord">[Am]</span> have to pack my <span class="chord">[G]</span> things and <span class="chord">[F]</span> go    <br/></b></i><br/>That's <span class="chord">[E7]</span> right!<br/></div><div class="section chorus"><small><i>Chorus</i></small> <br/>Hit the <span class="chord">[Am]</span> road <span class="chord">[G]</span> Jack <br/>and <span class="chord">[F]</span> don't you come <span class="chord">[E7]</span> back <br/>no <span class="chord">[Am]</span> more no <span class="chord">[G]</span> more <br/>no <span class="chord">[F]</span> more no <span class="chord">[E7]</span> more   <br/>Hit the <span class="chord">[Am]</span> road <span class="chord">[G]</span> Jack <br/>and <span class="chord">[F]</span> don't you come <span class="chord">[E7]</span> back <br/>no <span class="chord">[Am]</span> more <span class="chord">[G]</span>   <br/><b><i><span class="chord">[F]</span> What you <span class="chord">[E7]</span> say? </b></i> <br/><br/>Hit the <span class="chord">[Am]</span> road <span class="chord">[G]</span> Jack <br/>and <span class="chord">[F]</span> don't you come <span class="chord">[E7]</span> back <br/>no <span class="chord">[Am]</span> more no <span class="chord">[G]</span> more <br/>no <span class="chord">[F]</span> more no <span class="chord">[E7]</span> more   <br/>Hit <span class="chord">[Am]</span> the road <span class="chord">[G]</span> Jack <br/>and <span class="chord">[F]</span> don't you come <span class="chord">[E7]</span> back <br/>no <span class="chord">[Am]</span> more <span class="chord">[G]</span> <br/><span class="chord">[F]</span> <span class="chord">[E7]</span><br/></div><div class="section verse" data-verse="3"><small><i>Verse 3</i></small> <br/><b><i> <br/>Now <span class="chord">[Am]</span> baby, listen <span class="chord">[G]</span> baby, <br/>don't-a <span class="chord">[F]</span> treat me this-a <span class="chord">[E7]</span> way    <br/>For <span class="chord">[Am]</span> I'll be <span class="chord">[G]</span> back <br/>on my <span class="chord">[F]</span> feet some <span class="chord">[E7]</span> day   <br/></b></i>  <br/><br/>Don't <span class="chord">[Am]</span> care if you <span class="chord">[G]</span> do <br/>'cause it's <span class="chord">[F]</span> under <span class="chord">[E7]</span> stood    <br/>You <span class="chord">[Am]</span> ain't got no <span class="chord">[G]</span> money <br/>you just <span class="chord">[F]</span> ain't no <span class="chord">[E7]</span> good  <br/><br/><b><i><br/>I <span class="chord">[Am]</span> guess if <span class="chord">[G]</span> you say <span class="chord">[F]</span> say <span class="chord">[E7]</span> so      <br/>I'll <span class="chord">[Am]</span> have to pack my <span class="chord">[G]</span> things and <span class="chord">[F]</span> go    <br/></b></i><br/>That's <span class="chord">[E7]</span> right!<br/></div><div class="section chorus"><small><i>Chorus</i></small><br/>Hit the <span class="chord">[Am]</span> road <span class="chord">[G]</span> Jack <br/>and <span class="chord">[F]</span> don't you come <span class="chord">[E7]</span> back <br/>no <span class="chord">[Am]</span> more no <span class="chord">[G]</span> more <br/>no <span class="chord">[F]</span> more no <span class="chord">[E7]</span> more   <br/>Hit the <span class="chord">[Am]</span> road <span class="chord">[G]</span> Jack <br/>and <span class="chord">[F]</span> don't you come <span class="chord">[E7]</span> back <br/>no <span class="chord">[Am]</span> more <span class="chord">[G]</span>   <br/><b><i><span class="chord">[F]</span> What you <span class="chord">[E7]</span> say? </b></i> <br/><br/>Hit the <span class="chord">[Am]</span> road <span class="chord">[G]</span> Jack <br/>and <span class="chord">[F]</span> don't you come <span class="chord">[E7]</span> back <br/>no <span class="chord">[Am]</span> more no <span class="chord">[G]</span> more <br/>no <span class="chord">[F]</span> more no <span class="chord">[E7]</span> more   <br/>Hit <span class="chord">[Am]</span> the road <span class="chord">[G]</span> Jack <br/>and <span class="chord">[F]</span> don't you come <span class="chord">[E7]</span> back no <span class="chord">[Am]</span> more <span class="chord">[G]</span> <span class='text-muted'>(1)</span><br/></div><div class="section outro"><small><i>Outro</i></small><br/><span class="chord">[F]</span> Don't you come <span class="chord">[E7]</span> back no <span class="chord">[Am]</span> more <span class="chord">[G]</span> ..  <span class='text-muted'>(2)</span><br/><span class="chord">[F]</span> Don't you come <span class="chord">[E7]</span> back no <span class="chord">[Am]</span> more <span class="chord">[G]</span> ..  <span class='text-muted'>(3)</span><br/><span class="chord">[F]</span> Don't you come <span class="chord">[E7]</span> back no <span class="chord">[Am]</span> more <span class="chord">[G]</span> ..  <span class='text-muted'>(4)</span><br/><span class="chord">[F]</span> Don't you come <span class="chord">[E7]</span> back no <span class="chord">[Am]</span> more <span class="chord">[G]</span> ..  <span class='text-muted'>(5)</span><br/><span class="chord">[F]</span> Don't you come <span class="chord">[E7]</span> back no <span class="chord">[Am/]</span> more<br/><br/><a href="Lipstick-On-The-Glass.html" name="10"><br/>						Lipstick On The Glass<br/>						</a><br/></div>
+    </div>
+
+    <div id="options" class="mt-4">
+        <ul class="list-unstyled">
+            <li><a href="index.html"><strong>← Back</strong></a></li>
+         
+        </ul>
+    </div>
+
+    <hr/>
+			
+    <!--<div class="m-2 my-4 text-center">
+        <img src="/images/qrcode.png" class="img-fluid" alt="QR Code" width="200">
+    </div>-->
+
+</div>
+
+    </div>
+</div>
+
+<script>
+var scrollInterval;
+var songDuration = 3.5;
+var scrollDuration = songDuration * 60 * 1000; // x min w milisekundach - w tym czasie stronama zostac przewinięta
+//var body = document.body,
+//    html = document.documentElement;
+//var height = Math.max( Math.max( body.scrollHeight, body.offsetHeight, html.clientHeight, html.scrollHeight, html.offsetHeight ) - window.innerHeight, 1);
+var height = document.getElementById('tab').clientHeight; //wysokość boxu div tab
+var scrollTimeStep =  scrollDuration / height; // czas co jaki ma być wywołana funkcja przewijania
+function toggleButton() {
+  if (scrollInterval) { //jeśli scrollInterval był ustawiony w trakcie wywołania funkcji to zmień obraz na pauzę i wyczyść go
+    document.getElementById('buttonImage').src = 'images/pause2.gif';
+    clearInterval(scrollInterval); // Zatrzymuje autoscrollowanie
+    scrollInterval = null;
+  } else { //w przeciwnym wypadku ustaw scroll interval i przewijaj chyba ze dotrzesz do końca strony
+    document.getElementById('buttonImage').src = 'images/play2.gif';
+    scrollInterval = setInterval(function() {
+      if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight) {
+        // Jeśli strona została przewinięta do końca, zatrzymaj autoscroll po 4 sekundach
+        setTimeout(function() {
+          document.getElementById('buttonImage').src = 'images/pause2.gif';
+          clearInterval(scrollInterval);
+          scrollInterval = null;
+        }, 4000);
+      } else {
+        window.scrollBy({top: 1, behavior: "instant"}); // Uruchamia autoscrollowanie
+      }
+		height = document.getElementById('tab').clientHeight; //tylko dla infoboxa
+		scrollTimeStep =  scrollDuration / height; 
+		// Aktualizuj wartości w infoBox
+		document.getElementById('heightInfo').textContent = 'Height: ' + height;
+		document.getElementById('scrollTimeStepInfo').textContent = 'Scroll Time Step: ' + scrollTimeStep;
+		document.getElementById('songDuration').textContent= 'songDuration:' + songDuration;
+    }, scrollTimeStep);
+  }
+}
+// Zatrzymaj autoscroll, gdy strona jest opuszczana
+window.addEventListener('beforeunload', function() {
+  if (scrollInterval) {
+    clearInterval(scrollInterval);
+  }
+});
+</script>
+<script>//numerowanie tła zwrotek
+document.addEventListener("DOMContentLoaded", function () {
+  document.querySelectorAll('.section.verse[data-verse]').forEach(section => {
+    const height = section.offsetHeight;
+    const fontSize = Math.floor(height * 0.8) + "px"; // np. 80% wysokości sekcji
+
+    // twórz dynamiczny styl na pseudo-element
+    const style = document.createElement("style");
+    style.innerHTML = `
+      .section.verse[data-verse="${section.dataset.verse}"]::before {
+        font-size: ${fontSize};
+      }
+    `;
+    document.head.appendChild(style);
+  });
+});
+</script>
+</body>
+</html>
