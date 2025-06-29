@@ -1,0 +1,250 @@
+
+<!doctype html>
+
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <title>Should I stay or should I go</title>
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <style>
+		/* Styl akordów i elementów specjalnych */
+		.highlight {
+		  background-color: lemonchiffon;
+		  font-weight: bold;
+		}
+		.chord {
+		  font-weight: bold;
+		  color: #b3003b;
+		  position: relative;
+		  z-index: 1;
+		}
+		#tab {
+		  font-size: 100%;
+		  font-family: Verdana, Tahoma, sans-serif;
+		}
+		#options a {
+		  text-decoration: underline;
+		}
+
+		/* Pasek opcji u góry (sticky) */
+		.sticky {
+		  position: fixed;
+		  top: 0;
+		  margin-top: 0 !important;
+		  left: 0;
+		  padding: 0px 0px;
+		  width: 100%;
+		  border-bottom: 1px solid #cfd8dc;
+		}
+
+		/* Sekcje piosenki */
+		.section {
+		  position: relative;
+		  padding: 1rem 0.5rem;
+		  margin-bottom: 1rem;
+		  border-radius: 0.5rem;
+		  z-index: 1;
+		  overflow: hidden;
+		}
+
+		/* Tylko bezpieczne ustawienie pozycji dla dzieci */
+		.section > * {
+		  position: relative;
+		}
+
+		/* Kolory tła dla sekcji */
+		.section.verse        { background-color: #ffffff; }
+		.section.intro        { background-color: #ffffff; }
+		.section.chorus       { background-color: #ddd4d8; }  
+		.section.bridge       { background-color: #e6d1cc; }  
+		.section.prechorus    { background-color: #e9e2e5;; }  
+		.section.break        { background-color: #ffe0cc; }  
+		.section.instrumental {
+		  background-color: #f7f0ee;
+		}
+		.section.outro        { background-color: #ffffff; }
+		.section.hook         {
+		  background-color: #ffe0f0;
+		  font-weight: bold;
+		}
+		.section.end    { background-color: #ffffff; }
+		.section.section-b    { background-color: #f5f5f5; }
+		.section.end          { background-color: #ffffff; }
+
+		/* Duży numer zwrotki jako tło */
+		.section.verse[data-verse]::before {
+		  content: attr(data-verse);
+		  position: absolute;
+		  inset: 0;
+		  display: flex;
+		  align-items: center;
+		  justify-content: center;
+		  font-family: 'Impact', 'Arial Black', sans-serif;
+		  font-weight: bold;
+		  font-size: 30em;
+		  line-height: 1;
+		  color: rgba(120, 20, 20, 0.06); /* stonowany burgundowy cień */
+		  z-index: 0;
+		  pointer-events: none;
+		  white-space: nowrap;
+		  text-align: center;
+		}
+    </style>
+
+</head>
+<body data-duration = 5.0>
+
+
+<header class="container">
+    <div class="m-2 mb-4 text-center">
+		Śpiewnik Roboczy
+        <!--img src="/images/ukulele-krakow.png" class="img-fluid" alt="Krakow Ukulele" width="200">-->
+    </div>
+</header>
+
+<div class="container">
+    <div class="row justify-content-center">
+        
+<div class="col-lg-8 col-md-10 col-sm-12 my-3">
+
+    <h3 class="song-title">
+        #107 Should I stay or should I go
+    </h3>
+    
+    <!--<h5 class="song-artist">
+        The Clash
+    </h5>
+
+    <h5>
+        Level: 
+        <span class="badge rounded-pill badge- text-white"></span>
+    </h5
+    
+    -->
+
+   <div class="mt-4" style="overflow-x: auto;">
+    
+        <img src="chords/A7.gif" alt="A7" title="A7" />
+    
+        <img src="chords/Interlude.gif" alt="Interlude" title="Interlude" />
+    
+        <img src="chords/A.gif" alt="A" title="A" />
+    
+        <img src="chords/6.gif" alt="6" title="6" />
+    
+        <img src="chords/Break.gif" alt="Break" title="Break" />
+    
+        <img src="chords/D.gif" alt="D" title="D" />
+    
+        <img src="chords/Verse.gif" alt="Verse" title="Verse" />
+    
+        <img src="chords/5.gif" alt="5" title="5" />
+    
+        <img src="chords/F.gif" alt="F" title="F" />
+    
+        <img src="chords/G.gif" alt="G" title="G" />
+    
+        <img src="chords/N.C.gif" alt="N.C" title="N.C" />
+    
+        <img src="chords/N.C..gif" alt="N.C." title="N.C." />
+    
+</div>
+	<!--<div id="infoBox" style="position: fixed; right: 20px; top: 20px; border: 1px solid black; padding: 10px;">
+		<p id="heightInfo"></p>
+		<p id="scrollTimeStepInfo"></p>
+		<p id="songDuration"></p>
+	</div>-->
+	<div id="floatingButton" style="position: fixed; right: 20px; bottom: 20px; z-index: 9999;">
+		<button id="myButton" onclick="toggleButton()" type="button" class="btn btn-light">
+			<img id="buttonImage" src="images/pause2.gif">
+		</button>
+	</div>
+    
+    <div id="tab">
+        <div class="section">The Clash<br/><br/><br/><br/><br/><br/><small><i>(Verse 1)</i></small><br/><span class="chord">[N.C.]</span> Darling, you've got to let me know, <span class="chord">[D]</span>    <span class="chord">[G]</span>    <br/> <span class="chord">[D]</span> ...<br/><span class="chord">[N.C.]</span> Should I stay or should I go,       <span class="chord">[D]</span>    <span class="chord">[G]</span>    <br/> <span class="chord">[D]</span> ...<br/><span class="chord">[N.C.]</span> If you say that you are mine,       <span class="chord">[G]</span>    <span class="chord">[F]</span>    <br/> <span class="chord">[G]</span> ...<br/><span class="chord">[N.C.]</span> I'll be here 'til the end of time,  <span class="chord">[D]</span>    <span class="chord">[G]</span>    <br/> <span class="chord">[D]</span> ...<br/><span class="chord">[N.C.]</span> So you've got to let me <span class="chord">[A]</span> know----------   <br/> <span class="chord">[A7]</span> ...<br/><span class="chord">[N.C.]</span> ...Should I stay or should I go?    <span class="chord">[D]</span>    <span class="chord">[G]</span>    <br/> <span class="chord">[D]</span> ...<br/><br/><small><i>(Verse 2)</i></small><br/><span class="chord">[N.C.]</span> It's always tease, tease, tease,   <span class="chord">[D]</span>    <span class="chord">[G]</span>    <br/> <span class="chord">[D]</span> ...<br/><span class="chord">[N.C.]</span> You're happy when I'm on my knees, <span class="chord">[D]</span>    <span class="chord">[G]</span>    <br/> <span class="chord">[D]</span> ...<br/><span class="chord">[N.C.]</span> One day it's fine, and next it's black, <span class="chord">[G]</span>    <span class="chord">[F]</span>    <br/> <span class="chord">[G]</span> ...<br/><span class="chord">[N.C.]</span> So if you want me off your back,   <span class="chord">[D]</span>    <span class="chord">[G]</span>    <br/> <span class="chord">[D]</span> ...<br/><span class="chord">[N.C.]</span> Well, come on, and let me <span class="chord">[A]</span> know-------   <br/> <span class="chord">[A7]</span> ...<br/><span class="chord">[N.C.]</span> ...Should I stay or should I go?   <span class="chord">[D]</span>    <span class="chord">[G]</span>    <br/> <span class="chord">[D]</span> ...<br/><br/><small><i>(Verse 3)</i></small><br/><span class="chord">[N.C.]</span> Should I stay, or should I <span class="chord">[D]</span> go now?   <span class="chord">[G]</span>    <br/> <span class="chord">[D]</span> ...<br/><span class="chord">[D]</span> Should I stay, or should I <span class="chord">[D]</span> go now?   <span class="chord">[G]</span>    <br/> <span class="chord">[D]</span> ...<br/><span class="chord">[D]</span> If I go there will be <span class="chord">[G]</span> trouble, <span class="chord">[F]</span>    <br/> <span class="chord">[G]</span> ...<br/><span class="chord">[G]</span> And, if I stay, it will be <span class="chord">[D]</span> double,  <span class="chord">[G]</span>    <br/> <span class="chord">[D]</span> ...<br/><span class="chord">[D]</span> So, come on, and let me <span class="chord">[A]</span> <span class="chord">[A7]</span> know------...<br/><br/><span class="chord">[Interlude]</span><br/>| <span class="chord">[D]</span> /__/  /__/  <span class="chord">[G]</span> /__/  /__/ | <span class="chord">[D]</span> /  <span class="chord">[N.C.]</span> /  /  / |<br/>^  ^ ^   ^ ^   ^ ^    ^<br/><small><i>(Verse 4)</i></small><br/>N.C.<br/>This indecision's buggin' me,<br/><span class="chord">[D]</span> (Inde - <span class="chord">[G]</span> cisi&oacute;n me <span class="chord">[D]</span> mo - lesta)<br/>N.C.<br/>If you don't want me, set me free!<br/><span class="chord">[D]</span> (Si no me <span class="chord">[G]</span> quieres, <span class="chord">[D]</span> l&iacute;bra - me!)<br/>N.C.<br/>Exactly whom I'm supposed to be?<br/><span class="chord">[G]</span> (Digame <span class="chord">[F]</span>   ...quein <span class="chord">[G]</span> tengo ser!)<br/>N.C.<br/>Don't you know which clothes even fit me?<br/><span class="chord">[D]</span> (&iquest;No <span class="chord">[G]</span> sabes que ropas <span class="chord">[D]</span> me que - da?)<br/>N.C.<br/>Come on, and let me know...<br/><span class="chord">[A]</span> (Me tienes que de - <span class="chord">[A7]</span> cir...)<br/>N.C.<br/>Should I cool it, or should I blow?<br/><span class="chord">[D]</span> (&iquest;Me <span class="chord">[G]</span> debo ir o <span class="chord">[D]</span> quedar - me?)<br/><br/><span class="chord">[Break]</span>                          SPLIT!<br/>| <span class="chord">[D]</span> /__/  /__/  <span class="chord">[G]</span> /__/  /__/ | <span class="chord">[D]</span> /  <span class="chord">[N.C.]</span> /  /  / |<br/>^  ^ ^   ^ ^   ^ ^    ^<br/>| <span class="chord">[D]</span> /__/  /__/  <span class="chord">[G]</span> /__/  /__/ | <span class="chord">[D]</span> /  <span class="chord">[N.C.]</span> /  /  / |<br/>^  ^ ^   ^ ^   ^ ^    ^<br/><span class="chord">[G]</span> (&iquest;Yo <span class="chord">[F]</span> me en - <span class="chord">[G]</span> frio o lo <span class="chord">[N.C.]</span> soplo?)<br/><br/>| <span class="chord">[D]</span> /__/  /__/  <span class="chord">[G]</span> /__/  /__/ | <span class="chord">[D]</span> /  <span class="chord">[N.C.]</span> /  /  / |<br/>^  ^ ^   ^ ^   ^ ^    ^<br/>| <span class="chord">[A]</span> /__/  /__/  /__/  /__/ | <span class="chord">[A7]</span> /  <span class="chord">[N.C.]</span> /  /  / |<br/>^  ^ ^   ^ ^   ^ ^    ^<br/>| <span class="chord">[D]</span> /__/  /__/  <span class="chord">[G]</span> /__/  /__/ | <span class="chord">[D]</span> /  <span class="chord">[N.C.]</span> /  /  / |<br/>^  ^ ^   ^ ^   ^ ^    ^<br/><span class="chord">[Verse 5]</span><br/><span class="chord">[N.C.]</span> Should I stay, or should I <span class="chord">[D]</span> go now?<br/><span class="chord">[D]</span> (&iquest;Yo <span class="chord">[G]</span> me en - <span class="chord">[D]</span> frio o lo soplo?)<br/><span class="chord">[D]</span> Should I stay, or should I go now?<br/><span class="chord">[D]</span> (&iquest;Yo <span class="chord">[G]</span> me en - <span class="chord">[D]</span> frio o lo soplo?)<br/><span class="chord">[D]</span> If I go there will be <span class="chord">[G]</span> trouble,<br/><span class="chord">[G]</span> (Si me <span class="chord">[F]</span> voy va a haber pe - <span class="chord">[G]</span> ligro!)<br/><span class="chord">[G]</span> And if I stay it will be <span class="chord">[D]</span> double,<br/><span class="chord">[D]</span> (Si me <span class="chord">[G]</span> quedo sera el <span class="chord">[D]</span> doble!)<br/><span class="chord">[D]</span> So you've gotta let me <span class="chord">[A]</span> know...<br/><span class="chord">[A]</span> (Me tienes que decir...)<br/><span class="chord">[A]</span> Should I cool <span class="chord">[A7]</span> it, or should I <span class="chord">[D]</span> blow?<br/><span class="chord">[D]</span> (&iquest;Yo <span class="chord">[G]</span> me en - <span class="chord">[D]</span> frio o lo soplo?)<br/><br/><span class="chord">[Verse 6]</span><br/><span class="chord">[D]</span> Should I stay, or should I go now?<br/><span class="chord">[D]</span> (&iquest;Yo me <span class="chord">[G]</span> en - frio <span class="chord">[D]</span> o lo soplo?)<br/><span class="chord">[D]</span> If I go there will be <span class="chord">[G]</span> trouble,<br/><span class="chord">[G]</span> (Si me voy va <span class="chord">[F]</span> a haber pe - <span class="chord">[G]</span> ligro!)<br/><span class="chord">[G]</span> And if I stay it will be <span class="chord">[D]</span> double,<br/><span class="chord">[D]</span> (Si me <span class="chord">[G]</span> quedo sera el <span class="chord">[D]</span> doble!)<br/><span class="chord">[D]</span> So you gotta let me <span class="chord">[A]</span> know...<br/><span class="chord">[A]</span> (Me tienes que de - <span class="chord">[A7]</span> cir...)<br/> <span class="chord">[N.C]</span> ...<br/><span class="chord">[D]</span> Should I <span class="chord">[G]</span> stay, or should I <span class="chord">[D]</span> go?<br/>^      ^  ^    ^  ^      ^ ^</div>
+    </div>
+
+    <div id="options" class="mt-4">
+        <ul class="list-unstyled">
+            <li><a href="index.html"><strong>← Back</strong></a></li>
+         
+        </ul>
+    </div>
+
+    <hr/>
+			
+    <!--<div class="m-2 my-4 text-center">
+        <img src="/images/qrcode.png" class="img-fluid" alt="QR Code" width="200">
+    </div>-->
+
+</div>
+
+    </div>
+</div>
+
+<script>
+var scrollInterval;
+var songDuration = 3.5;
+var scrollDuration = songDuration * 60 * 1000; // x min w milisekundach - w tym czasie stronama zostac przewinięta
+//var body = document.body,
+//    html = document.documentElement;
+//var height = Math.max( Math.max( body.scrollHeight, body.offsetHeight, html.clientHeight, html.scrollHeight, html.offsetHeight ) - window.innerHeight, 1);
+var height = document.getElementById('tab').clientHeight; //wysokość boxu div tab
+var scrollTimeStep =  scrollDuration / height; // czas co jaki ma być wywołana funkcja przewijania
+function toggleButton() {
+  if (scrollInterval) { //jeśli scrollInterval był ustawiony w trakcie wywołania funkcji to zmień obraz na pauzę i wyczyść go
+    document.getElementById('buttonImage').src = 'images/pause2.gif';
+    clearInterval(scrollInterval); // Zatrzymuje autoscrollowanie
+    scrollInterval = null;
+  } else { //w przeciwnym wypadku ustaw scroll interval i przewijaj chyba ze dotrzesz do końca strony
+    document.getElementById('buttonImage').src = 'images/play2.gif';
+    scrollInterval = setInterval(function() {
+      if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight) {
+        // Jeśli strona została przewinięta do końca, zatrzymaj autoscroll po 4 sekundach
+        setTimeout(function() {
+          document.getElementById('buttonImage').src = 'images/pause2.gif';
+          clearInterval(scrollInterval);
+          scrollInterval = null;
+        }, 4000);
+      } else {
+        window.scrollBy({top: 1, behavior: "instant"}); // Uruchamia autoscrollowanie
+      }
+		height = document.getElementById('tab').clientHeight; //tylko dla infoboxa
+		scrollTimeStep =  scrollDuration / height; 
+		// Aktualizuj wartości w infoBox
+		document.getElementById('heightInfo').textContent = 'Height: ' + height;
+		document.getElementById('scrollTimeStepInfo').textContent = 'Scroll Time Step: ' + scrollTimeStep;
+		document.getElementById('songDuration').textContent= 'songDuration:' + songDuration;
+    }, scrollTimeStep);
+  }
+}
+// Zatrzymaj autoscroll, gdy strona jest opuszczana
+window.addEventListener('beforeunload', function() {
+  if (scrollInterval) {
+    clearInterval(scrollInterval);
+  }
+});
+</script>
+<script>//numerowanie tła zwrotek
+document.addEventListener("DOMContentLoaded", function () {
+  document.querySelectorAll('.section.verse[data-verse]').forEach(section => {
+    const height = section.offsetHeight;
+    const fontSize = Math.floor(height * 0.8) + "px"; // np. 80% wysokości sekcji
+
+    // twórz dynamiczny styl na pseudo-element
+    const style = document.createElement("style");
+    style.innerHTML = `
+      .section.verse[data-verse="${section.dataset.verse}"]::before {
+        font-size: ${fontSize};
+      }
+    `;
+    document.head.appendChild(style);
+  });
+});
+</script>
+</body>
+</html>
