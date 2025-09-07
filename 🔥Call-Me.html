@@ -1,0 +1,246 @@
+
+<!doctype html>
+
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <title>🔥Call Me</title>
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <style>
+		/* Styl akordów i elementów specjalnych */
+		.highlight {
+		  background-color: lemonchiffon;
+		  font-weight: bold;
+		}
+		.chord {
+		  font-weight: bold;
+		  color: #b3003b;
+		  position: relative;
+		  z-index: 1;
+		}
+		#tab {
+		  font-size: 100%;
+		  font-family: Verdana, Tahoma, sans-serif;
+		}
+		#options a {
+		  text-decoration: underline;
+		}
+
+		/* Pasek opcji u góry (sticky) */
+		.sticky {
+		  position: fixed;
+		  top: 0;
+		  margin-top: 0 !important;
+		  left: 0;
+		  padding: 0px 0px;
+		  width: 100%;
+		  border-bottom: 1px solid #cfd8dc;
+		}
+
+		/* Sekcje piosenki */
+		.section {
+		  position: relative;
+		  padding: 1rem 0.5rem;
+		  margin-bottom: 1rem;
+		  border-radius: 0.5rem;
+		  z-index: 1;
+		  overflow: hidden;
+		}
+
+		/* Tylko bezpieczne ustawienie pozycji dla dzieci */
+		.section > * {
+		  position: relative;
+		}
+
+		/* Kolory tła dla sekcji */
+		.section.verse        { background-color: #ffffff; }
+		.section.intro        { background-color: #ffffff; }
+		.section.chorus       { background-color: #ddd4d8; }  
+		.section.bridge       { background-color: #e6d1cc; }  
+		.section.prechorus    { background-color: #e9e2e5;; }  
+		.section.break        { background-color: #ffe0cc; }  
+		.section.instrumental {
+		  background-color: #f7f0ee;
+		}
+		.section.outro        { background-color: #ffffff; }
+		.section.hook         {
+		  background-color: #ffe0f0;
+		  font-weight: bold;
+		}
+		.section.end    { background-color: #ffffff; }
+		.section.section-b    { background-color: #f5f5f5; }
+		.section.end          { background-color: #ffffff; }
+
+		/* Duży numer zwrotki jako tło */
+		.section.verse[data-verse]::before {
+		  content: attr(data-verse);
+		  position: absolute;
+		  inset: 0;
+		  display: flex;
+		  align-items: center;
+		  justify-content: center;
+		  font-family: 'Impact', 'Arial Black', sans-serif;
+		  font-weight: bold;
+		  font-size: 30em;
+		  line-height: 1;
+		  color: rgba(120, 20, 20, 0.06); /* stonowany burgundowy cień */
+		  z-index: 0;
+		  pointer-events: none;
+		  white-space: nowrap;
+		  text-align: center;
+		}
+    </style>
+
+</head>
+<body data-duration = 4.0>
+
+
+<header class="container">
+    <div class="m-2 mb-4 text-center">
+		Śpiewnik Noobeats 
+        <!--img src="/images/ukulele-krakow.png" class="img-fluid" alt="Krakow Ukulele" width="200">-->
+    </div>
+</header>
+
+<div class="container">
+    <div class="row justify-content-center">
+        
+<div class="col-lg-8 col-md-10 col-sm-12 my-3">
+
+    <h3 class="song-title">
+        #? 🔥Call Me
+    </h3>
+    
+    <!--<h5 class="song-artist">
+        Blondie
+    </h5>
+
+    <h5>
+        Level: 
+        <span class="badge rounded-pill badge- text-white"></span>
+    </h5
+    
+    -->
+
+   <div class="mt-4" style="overflow-x: auto;">
+    
+        <img src="chords/C.gif" alt="C" title="C" />
+    
+        <img src="chords/2x.gif" alt="2x" title="2x" />
+    
+        <img src="chords/G.gif" alt="G" title="G" />
+    
+        <img src="chords/Bb.gif" alt="Bb" title="Bb" />
+    
+        <img src="chords/A.gif" alt="A" title="A" />
+    
+        <img src="chords/Gm.gif" alt="Gm" title="Gm" />
+    
+        <img src="chords/Bm.gif" alt="Bm" title="Bm" />
+    
+        <img src="chords/Dm.gif" alt="Dm" title="Dm" />
+    
+        <img src="chords/F.gif" alt="F" title="F" />
+    
+        <img src="chords/Em.gif" alt="Em" title="Em" />
+    
+</div>
+	<!--<div id="infoBox" style="position: fixed; right: 20px; top: 20px; border: 1px solid black; padding: 10px;">
+		<p id="heightInfo"></p>
+		<p id="scrollTimeStepInfo"></p>
+		<p id="songDuration"></p>
+	</div>-->
+	<div id="floatingButton" style="position: fixed; right: 20px; bottom: 20px; z-index: 9999;">
+		<button id="myButton" onclick="toggleButton()" type="button" class="btn btn-light">
+			<img id="buttonImage" src="images/pause2.gif">
+		</button>
+	</div>
+    
+    <div id="tab">
+        <div class="section"><br/><br/><br/><br/><br/><br/>Call Me chords<br/>Blondie  1980 *<br/><br/>https://en.wikipedia.org/wiki/Call_Me_(Blondie_song)<br/><br/>Capo I<br/><br/><span class="chord">[Dm]</span>   <span class="chord">[G]</span>  <span class="chord">[F]</span>    <span class="chord">[Dm]</span>     <span class="chord">[F]</span>  <span class="chord">[C]</span>   <span class="chord">[2x]</span> <br/><br/><span class="chord">[Dm]</span> Color me your color, baby,<br/><span class="chord">[Bb]</span> color me your car.<br/><span class="chord">[Dm]</span> Color me your color, darling,<br/><span class="chord">[Bb]</span> I know who you are.<br/><span class="chord">[Gm]</span> Come up off your <span class="chord">[A]</span> color chart;<br/><span class="chord">[Gm]</span> I know where you're <span class="chord">[A]</span> coming from.<br/><br/>Call <span class="chord">[Dm]</span> me (call me) on the <span class="chord">[F]</span> line,<br/>call me, <span class="chord">[Gm]</span> call me any, <span class="chord">[Bb]</span> anytime.<br/>Call <span class="chord">[Dm]</span> me (call me) I'll <span class="chord">[F]</span> arrive,<br/>you can <span class="chord">[Gm]</span> call me any <span class="chord">[Bb]</span> day or night.<br/>Call <span class="chord">[Dm]</span> me!<br/><br/><span class="chord">[Dm]</span>   <span class="chord">[G]</span>  <span class="chord">[F]</span>    <span class="chord">[Dm]</span>   <span class="chord">[F]</span>  <span class="chord">[C]</span> <br/><br/><span class="chord">[Dm]</span> Cover me with kisses, baby,<br/><span class="chord">[Bb]</span> cover me with love.<br/><span class="chord">[Dm]</span> Roll me in designer sheets,<br/><span class="chord">[Bb]</span> I'll never get enough.<br/><span class="chord">[Gm]</span> Emotions come, I <span class="chord">[A]</span> don't know why;<br/><span class="chord">[Gm]</span> cover up love's <span class="chord">[A]</span> alibi.<br/><br/>Call <span class="chord">[Dm]</span> me (call me) on the <span class="chord">[F]</span> line,<br/>call me, <span class="chord">[Gm]</span> call me any, <span class="chord">[Bb]</span> anytime.<br/>Call <span class="chord">[Dm]</span> me (call me) I'll <span class="chord">[F]</span> arrive,<br/>when you're <span class="chord">[Gm]</span> ready we can <span class="chord">[Bb]</span> share the wine.<br/>Call <span class="chord">[Dm]</span> me.<br/><br/><span class="chord">[Dm]</span>   <span class="chord">[G]</span>  <span class="chord">[F]</span>     <span class="chord">[Em]</span>   <span class="chord">[A]</span>  <span class="chord">[G]</span> <br/><br/><span class="chord">[Em]</span> Ooh, he speaks the <span class="chord">[Bm]</span> languages of love.<br/><span class="chord">[Em]</span> Ooh, amore, <span class="chord">[Bm]</span> chiamami (chiamami).<br/><span class="chord">[F]</span> Ooh, appelle-moi, <span class="chord">[C]</span> mon cheri (appelle-moi).<br/><span class="chord">[Dm]</span> Anytime, anyplace, anywhere, <span class="chord">[Bb]</span> anyway!<br/><span class="chord">[Gm]</span> Anytime, anyplace, anywhere, any day, <span class="chord">[A]</span> anyway!<br/><br/><span class="chord">[Em]</span>  <span class="chord">[Bm]</span>    <span class="chord">[Em]</span>  <span class="chord">[Bm]</span>   <span class="chord">[F]</span>  <span class="chord">[C]</span>   <span class="chord">[Dm]</span>  <span class="chord">[Bb]</span>   <span class="chord">[Gm]</span>  <span class="chord">[A]</span> <br/><br/>Call <span class="chord">[Dm]</span> me (call me) in my <span class="chord">[F]</span> life,<br/>call me, <span class="chord">[Gm]</span> call me any, <span class="chord">[Bb]</span> anytime.<br/>Call <span class="chord">[Dm]</span> me (call me) I'll <span class="chord">[F]</span> arrive,<br/>call me, <span class="chord">[Gm]</span> call me for some <span class="chord">[Bb]</span> overtime.<br/><br/>Call <span class="chord">[Dm]</span> me (call me) in my <span class="chord">[F]</span> life,<br/>call me, <span class="chord">[Gm]</span> call me in a <span class="chord">[Bb]</span> sweet design.<br/>Call <span class="chord">[Dm]</span> me, (call me) call <span class="chord">[F]</span> me for your <span class="chord">[Gm]</span> lover's lover's <span class="chord">[Bb]</span> alibi.<br/>Call <span class="chord">[Dm]</span> me (call me) <span class="chord">[F]</span> inner line,<br/>call me, <span class="chord">[Gm]</span> call me any <span class="chord">[Bb]</span> anytime.<br/>Call <span class="chord">[Dm]</span> me.<br/><br/><span class="chord">[F]</span> Oh, call <span class="chord">[Gm]</span> me, ooh <span class="chord">[Bb]</span> ooh ah.<br/><br/></div>
+    </div>
+
+    <div id="options" class="mt-4">
+        <ul class="list-unstyled">
+            <li><a href="index.html"><strong>← Back</strong></a></li>
+         
+        </ul>
+    </div>
+
+    <hr/>
+			
+    <!--<div class="m-2 my-4 text-center">
+        <img src="/images/qrcode.png" class="img-fluid" alt="QR Code" width="200">
+    </div>-->
+
+</div>
+
+    </div>
+</div>
+
+<script>
+var scrollInterval;
+var songDuration = 3.5;
+var scrollDuration = songDuration * 60 * 1000; // x min w milisekundach - w tym czasie stronama zostac przewinięta
+//var body = document.body,
+//    html = document.documentElement;
+//var height = Math.max( Math.max( body.scrollHeight, body.offsetHeight, html.clientHeight, html.scrollHeight, html.offsetHeight ) - window.innerHeight, 1);
+var height = document.getElementById('tab').clientHeight; //wysokość boxu div tab
+var scrollTimeStep =  scrollDuration / height; // czas co jaki ma być wywołana funkcja przewijania
+function toggleButton() {
+  if (scrollInterval) { //jeśli scrollInterval był ustawiony w trakcie wywołania funkcji to zmień obraz na pauzę i wyczyść go
+    document.getElementById('buttonImage').src = 'images/pause2.gif';
+    clearInterval(scrollInterval); // Zatrzymuje autoscrollowanie
+    scrollInterval = null;
+  } else { //w przeciwnym wypadku ustaw scroll interval i przewijaj chyba ze dotrzesz do końca strony
+    document.getElementById('buttonImage').src = 'images/play2.gif';
+    scrollInterval = setInterval(function() {
+      if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight) {
+        // Jeśli strona została przewinięta do końca, zatrzymaj autoscroll po 4 sekundach
+        setTimeout(function() {
+          document.getElementById('buttonImage').src = 'images/pause2.gif';
+          clearInterval(scrollInterval);
+          scrollInterval = null;
+        }, 4000);
+      } else {
+        window.scrollBy({top: 1, behavior: "instant"}); // Uruchamia autoscrollowanie
+      }
+		height = document.getElementById('tab').clientHeight; //tylko dla infoboxa
+		scrollTimeStep =  scrollDuration / height; 
+		// Aktualizuj wartości w infoBox
+		document.getElementById('heightInfo').textContent = 'Height: ' + height;
+		document.getElementById('scrollTimeStepInfo').textContent = 'Scroll Time Step: ' + scrollTimeStep;
+		document.getElementById('songDuration').textContent= 'songDuration:' + songDuration;
+    }, scrollTimeStep);
+  }
+}
+// Zatrzymaj autoscroll, gdy strona jest opuszczana
+window.addEventListener('beforeunload', function() {
+  if (scrollInterval) {
+    clearInterval(scrollInterval);
+  }
+});
+</script>
+<script>//numerowanie tła zwrotek
+document.addEventListener("DOMContentLoaded", function () {
+  document.querySelectorAll('.section.verse[data-verse]').forEach(section => {
+    const height = section.offsetHeight;
+    const fontSize = Math.floor(height * 0.8) + "px"; // np. 80% wysokości sekcji
+
+    // twórz dynamiczny styl na pseudo-element
+    const style = document.createElement("style");
+    style.innerHTML = `
+      .section.verse[data-verse="${section.dataset.verse}"]::before {
+        font-size: ${fontSize};
+      }
+    `;
+    document.head.appendChild(style);
+  });
+});
+</script>
+</body>
+</html>

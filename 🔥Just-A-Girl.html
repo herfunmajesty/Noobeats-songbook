@@ -1,0 +1,238 @@
+
+<!doctype html>
+
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <title>🔥Just A Girl</title>
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <style>
+		/* Styl akordów i elementów specjalnych */
+		.highlight {
+		  background-color: lemonchiffon;
+		  font-weight: bold;
+		}
+		.chord {
+		  font-weight: bold;
+		  color: #b3003b;
+		  position: relative;
+		  z-index: 1;
+		}
+		#tab {
+		  font-size: 100%;
+		  font-family: Verdana, Tahoma, sans-serif;
+		}
+		#options a {
+		  text-decoration: underline;
+		}
+
+		/* Pasek opcji u góry (sticky) */
+		.sticky {
+		  position: fixed;
+		  top: 0;
+		  margin-top: 0 !important;
+		  left: 0;
+		  padding: 0px 0px;
+		  width: 100%;
+		  border-bottom: 1px solid #cfd8dc;
+		}
+
+		/* Sekcje piosenki */
+		.section {
+		  position: relative;
+		  padding: 1rem 0.5rem;
+		  margin-bottom: 1rem;
+		  border-radius: 0.5rem;
+		  z-index: 1;
+		  overflow: hidden;
+		}
+
+		/* Tylko bezpieczne ustawienie pozycji dla dzieci */
+		.section > * {
+		  position: relative;
+		}
+
+		/* Kolory tła dla sekcji */
+		.section.verse        { background-color: #ffffff; }
+		.section.intro        { background-color: #ffffff; }
+		.section.chorus       { background-color: #ddd4d8; }  
+		.section.bridge       { background-color: #e6d1cc; }  
+		.section.prechorus    { background-color: #e9e2e5;; }  
+		.section.break        { background-color: #ffe0cc; }  
+		.section.instrumental {
+		  background-color: #f7f0ee;
+		}
+		.section.outro        { background-color: #ffffff; }
+		.section.hook         {
+		  background-color: #ffe0f0;
+		  font-weight: bold;
+		}
+		.section.end    { background-color: #ffffff; }
+		.section.section-b    { background-color: #f5f5f5; }
+		.section.end          { background-color: #ffffff; }
+
+		/* Duży numer zwrotki jako tło */
+		.section.verse[data-verse]::before {
+		  content: attr(data-verse);
+		  position: absolute;
+		  inset: 0;
+		  display: flex;
+		  align-items: center;
+		  justify-content: center;
+		  font-family: 'Impact', 'Arial Black', sans-serif;
+		  font-weight: bold;
+		  font-size: 30em;
+		  line-height: 1;
+		  color: rgba(120, 20, 20, 0.06); /* stonowany burgundowy cień */
+		  z-index: 0;
+		  pointer-events: none;
+		  white-space: nowrap;
+		  text-align: center;
+		}
+    </style>
+
+</head>
+<body data-duration = 4.0>
+
+
+<header class="container">
+    <div class="m-2 mb-4 text-center">
+		Śpiewnik Noobeats 
+        <!--img src="/images/ukulele-krakow.png" class="img-fluid" alt="Krakow Ukulele" width="200">-->
+    </div>
+</header>
+
+<div class="container">
+    <div class="row justify-content-center">
+        
+<div class="col-lg-8 col-md-10 col-sm-12 my-3">
+
+    <h3 class="song-title">
+        #? 🔥Just A Girl
+    </h3>
+    
+    <!--<h5 class="song-artist">
+        No Doubt
+    </h5>
+
+    <h5>
+        Level: 
+        <span class="badge rounded-pill badge- text-white"></span>
+    </h5
+    
+    -->
+
+   <div class="mt-4" style="overflow-x: auto;">
+    
+        <img src="chords/C.gif" alt="C" title="C" />
+    
+        <img src="chords/G.gif" alt="G" title="G" />
+    
+        <img src="chords/A.gif" alt="A" title="A" />
+    
+        <img src="chords/Bm.gif" alt="Bm" title="Bm" />
+    
+        <img src="chords/Interlude.gif" alt="Interlude" title="Interlude" />
+    
+        <img src="chords/Post-Chorus.gif" alt="Post-Chorus" title="Post-Chorus" />
+    
+</div>
+	<!--<div id="infoBox" style="position: fixed; right: 20px; top: 20px; border: 1px solid black; padding: 10px;">
+		<p id="heightInfo"></p>
+		<p id="scrollTimeStepInfo"></p>
+		<p id="songDuration"></p>
+	</div>-->
+	<div id="floatingButton" style="position: fixed; right: 20px; bottom: 20px; z-index: 9999;">
+		<button id="myButton" onclick="toggleButton()" type="button" class="btn btn-light">
+			<img id="buttonImage" src="images/pause2.gif">
+		</button>
+	</div>
+    
+    <div id="tab">
+        <div class="section"><br/><br/><br/><br/><br/><br/><span class="chord">[Intro/Verse Riff]</span><br/><br/>e|---------------------------------|<br/>B|---------------------------------|<br/>G|---------------------------------|<br/>D|-----7---------------------------|<br/>A|-5-----------5-------5-------7---|<br/>E|---------7-7-----6-6-----5-------|<br/><br/><br/><span class="chord">[Solo]</span><br/><br/>e|---7-10-9-7---------------7-10-9-7---------------|<br/>B|-7----------7--------7--7----------7--------7----|<br/>G|--------------9--7-9-----------------9--7-9------|<br/>D|----------------------------------------------9--| x2<br/>A|-------------------------------------------------|<br/>E|-------------------------------------------------|<br/><br/><br/><small><i>(Intro)</i></small><br/><br/>Riff x4<br/><br/><br/><small><i>(Verse)</i></small><br/><br/>(w/Riff x8)<br/><br/>Take this pink ribbon off my eyes<br/>I'm exposed<br/>And it's no big surprise<br/>Don't you think I know<br/>Exactly where I stand<br/>This world is forcing me<br/>To hold your hand<br/><br/><br/><small><i>(Chorus)</i></small><br/><br/>'Cause <span class="chord">[Bm]</span> I am just a <span class="chord">[A]</span> girl, <span class="chord">[G]</span> little ol' <span class="chord">[A]</span> me<br/><span class="chord">[Bm]</span> Don't let me <span class="chord">[A]</span> out of your <span class="chord">[G]</span> sight <br/> <span class="chord">[A]</span> ...<br/><span class="chord">[Bm]</span> I'm just a <span class="chord">[A]</span> girl, all <span class="chord">[G]</span> pretty and <span class="chord">[A]</span> petite<br/>So <span class="chord">[Bm]</span> don't let me <span class="chord">[A]</span> have any <span class="chord">[G]</span> rights <br/> <span class="chord">[A]</span> ...<br/><br/><br/><span class="chord">[Post-Chorus]</span> (the G and C are palm muted)<br/><br/>G          C<br/>Oh... I've had it up to here!<br/><br/><br/><span class="chord">[Interlude]</span><br/><br/>Riff x2<br/><br/><br/><small><i>(Verse)</i></small><br/><br/>(w/Riff x8)<br/>The moment that I step outside<br/>So many reasons<br/>For me to run and hide<br/>I can't do the little things<br/>I hold so dear<br/>'Cause it's all those little things<br/>That I fear<br/><br/><br/><small><i>(Chorus)</i></small><br/><br/>'Cause <span class="chord">[Bm]</span> I am just a <span class="chord">[A]</span> girl<br/>I'd <span class="chord">[G]</span> rather not <span class="chord">[A]</span> be<br/>'Cause they <span class="chord">[Bm]</span> won't let me <span class="chord">[A]</span> drive<br/>Late at <span class="chord">[G]</span> night <br/> <span class="chord">[A]</span> ...<br/><span class="chord">[Bm]</span> I'm just a <span class="chord">[A]</span> girl<br/>Guess I'm <span class="chord">[G]</span> some kind of <span class="chord">[A]</span> freak<br/>'Cause they <span class="chord">[Bm]</span> all sit and <span class="chord">[A]</span> stare<br/>With their <span class="chord">[G]</span> eyes <br/> <span class="chord">[A]</span> ...<br/><span class="chord">[Bm]</span> I'm just a <span class="chord">[A]</span> girl<br/>Take a <span class="chord">[G]</span> good look at <span class="chord">[A]</span> me<br/>Just your <span class="chord">[Bm]</span> typical <span class="chord">[A]</span> <span class="chord">[G]</span> prototype <br/> <span class="chord">[A]</span> ...<br/><br/><br/><span class="chord">[Post-Chorus]</span> (the G and C are palm muted)<br/>G          C<br/>Oh... I've had it up to here!<br/><br/><br/><span class="chord">[Solo]</span> (over chorus progression)<br/>Bm  A  G  A  x4<br/>G          C<br/>Oh... Am I making myself clear?<br/><br/><br/><span class="chord">[Interlude]</span><br/><br/>Riff x2<br/><br/><br/><small><i>(Bridge)</i></small><br/><br/>(w/Riff x6)<br/>I'm just a girl<br/>I'm just a girl in the world...<br/>That's all that you'll let me be!<br/><br/><br/><small><i>(Chorus)</i></small><br/><br/><span class="chord">[Bm]</span> I'm just a <span class="chord">[A]</span> girl, living <span class="chord">[G]</span> in <span class="chord">[A]</span> captivity<br/>Your rule of <span class="chord">[Bm]</span> thumb<br/>Makes me <span class="chord">[A]</span> worry <span class="chord">[G]</span> some <br/> <span class="chord">[A]</span> ...<br/><span class="chord">[Bm]</span> I'm just a <span class="chord">[A]</span> girl, <span class="chord">[G]</span> what's my <span class="chord">[A]</span> destiny?<br/>What I've <span class="chord">[Bm]</span> succumbed to<br/>Is <span class="chord">[A]</span> making me <span class="chord">[G]</span> numb <br/> <span class="chord">[A]</span> ...<br/><span class="chord">[Bm]</span> I'm just a <span class="chord">[A]</span> girl, my <span class="chord">[G]</span> <span class="chord">[A]</span> apologies<br/>What I've <span class="chord">[Bm]</span> become is <span class="chord">[A]</span> so <span class="chord">[G]</span> burdensome <br/> <span class="chord">[A]</span> ...<br/><span class="chord">[Bm]</span> I'm just a <span class="chord">[A]</span> girl, <span class="chord">[G]</span> lucky <span class="chord">[A]</span> me<br/><span class="chord">[Bm]</span> Twiddle-dum, there's no <span class="chord">[A]</span> <span class="chord">[G]</span> comparison <br/> <span class="chord">[A]</span> ...<br/><br/><br/><small><i>(Outro)</i></small> (the G and C are palm muted)<br/><br/><span class="chord">[G]</span> Oh... I've <span class="chord">[C]</span> had it up to!<br/><span class="chord">[G]</span> Oh... I've <span class="chord">[C]</span> had it up to!<br/><span class="chord">[G]</span> Oh... I've <span class="chord">[C]</span> had it up <span class="chord">[Bm]</span> to here!<br/><br/>(slow down on the last G and let the final Bm ring out)<br/></div>
+    </div>
+
+    <div id="options" class="mt-4">
+        <ul class="list-unstyled">
+            <li><a href="index.html"><strong>← Back</strong></a></li>
+         
+        </ul>
+    </div>
+
+    <hr/>
+			
+    <!--<div class="m-2 my-4 text-center">
+        <img src="/images/qrcode.png" class="img-fluid" alt="QR Code" width="200">
+    </div>-->
+
+</div>
+
+    </div>
+</div>
+
+<script>
+var scrollInterval;
+var songDuration = 3.5;
+var scrollDuration = songDuration * 60 * 1000; // x min w milisekundach - w tym czasie stronama zostac przewinięta
+//var body = document.body,
+//    html = document.documentElement;
+//var height = Math.max( Math.max( body.scrollHeight, body.offsetHeight, html.clientHeight, html.scrollHeight, html.offsetHeight ) - window.innerHeight, 1);
+var height = document.getElementById('tab').clientHeight; //wysokość boxu div tab
+var scrollTimeStep =  scrollDuration / height; // czas co jaki ma być wywołana funkcja przewijania
+function toggleButton() {
+  if (scrollInterval) { //jeśli scrollInterval był ustawiony w trakcie wywołania funkcji to zmień obraz na pauzę i wyczyść go
+    document.getElementById('buttonImage').src = 'images/pause2.gif';
+    clearInterval(scrollInterval); // Zatrzymuje autoscrollowanie
+    scrollInterval = null;
+  } else { //w przeciwnym wypadku ustaw scroll interval i przewijaj chyba ze dotrzesz do końca strony
+    document.getElementById('buttonImage').src = 'images/play2.gif';
+    scrollInterval = setInterval(function() {
+      if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight) {
+        // Jeśli strona została przewinięta do końca, zatrzymaj autoscroll po 4 sekundach
+        setTimeout(function() {
+          document.getElementById('buttonImage').src = 'images/pause2.gif';
+          clearInterval(scrollInterval);
+          scrollInterval = null;
+        }, 4000);
+      } else {
+        window.scrollBy({top: 1, behavior: "instant"}); // Uruchamia autoscrollowanie
+      }
+		height = document.getElementById('tab').clientHeight; //tylko dla infoboxa
+		scrollTimeStep =  scrollDuration / height; 
+		// Aktualizuj wartości w infoBox
+		document.getElementById('heightInfo').textContent = 'Height: ' + height;
+		document.getElementById('scrollTimeStepInfo').textContent = 'Scroll Time Step: ' + scrollTimeStep;
+		document.getElementById('songDuration').textContent= 'songDuration:' + songDuration;
+    }, scrollTimeStep);
+  }
+}
+// Zatrzymaj autoscroll, gdy strona jest opuszczana
+window.addEventListener('beforeunload', function() {
+  if (scrollInterval) {
+    clearInterval(scrollInterval);
+  }
+});
+</script>
+<script>//numerowanie tła zwrotek
+document.addEventListener("DOMContentLoaded", function () {
+  document.querySelectorAll('.section.verse[data-verse]').forEach(section => {
+    const height = section.offsetHeight;
+    const fontSize = Math.floor(height * 0.8) + "px"; // np. 80% wysokości sekcji
+
+    // twórz dynamiczny styl na pseudo-element
+    const style = document.createElement("style");
+    style.innerHTML = `
+      .section.verse[data-verse="${section.dataset.verse}"]::before {
+        font-size: ${fontSize};
+      }
+    `;
+    document.head.appendChild(style);
+  });
+});
+</script>
+</body>
+</html>
