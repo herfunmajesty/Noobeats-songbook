@@ -1,0 +1,236 @@
+
+<!doctype html>
+
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <title>I'm into you</title>
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <style>
+		/* Styl akordów i elementów specjalnych */
+		.highlight {
+		  background-color: lemonchiffon;
+		  font-weight: bold;
+		}
+		.chord {
+		  font-weight: bold;
+		  color: #b3003b;
+		  position: relative;
+		  z-index: 1;
+		}
+		#tab {
+		  font-size: 100%;
+		  font-family: Verdana, Tahoma, sans-serif;
+		}
+		#options a {
+		  text-decoration: underline;
+		}
+
+		/* Pasek opcji u góry (sticky) */
+		.sticky {
+		  position: fixed;
+		  top: 0;
+		  margin-top: 0 !important;
+		  left: 0;
+		  padding: 0px 0px;
+		  width: 100%;
+		  border-bottom: 1px solid #cfd8dc;
+		}
+
+		/* Sekcje piosenki */
+		.section {
+		  position: relative;
+		  padding: 1rem 0.5rem;
+		  margin-bottom: 1rem;
+		  border-radius: 0.5rem;
+		  z-index: 1;
+		  overflow: hidden;
+		}
+
+		/* Tylko bezpieczne ustawienie pozycji dla dzieci */
+		.section > * {
+		  position: relative;
+		}
+
+		/* Kolory tła dla sekcji */
+		.section.verse        { background-color: #ffffff; }
+		.section.intro        { background-color: #ffffff; }
+		.section.chorus       { background-color: #ddd4d8; }  
+		.section.bridge       { background-color: #e6d1cc; }  
+		.section.prechorus    { background-color: #e9e2e5;; }  
+		.section.break        { background-color: #ffe0cc; }  
+		.section.instrumental {
+		  background-color: #f7f0ee;
+		}
+		.section.outro        { background-color: #ffffff; }
+		.section.hook         {
+		  background-color: #ffe0f0;
+		  font-weight: bold;
+		}
+		.section.end    { background-color: #ffffff; }
+		.section.section-b    { background-color: #f5f5f5; }
+		.section.end          { background-color: #ffffff; }
+
+		/* Duży numer zwrotki jako tło */
+		.section.verse[data-verse]::before {
+		  content: attr(data-verse);
+		  position: absolute;
+		  inset: 0;
+		  display: flex;
+		  align-items: center;
+		  justify-content: center;
+		  font-family: 'Impact', 'Arial Black', sans-serif;
+		  font-weight: bold;
+		  font-size: 30em;
+		  line-height: 1;
+		  color: rgba(120, 20, 20, 0.06); /* stonowany burgundowy cień */
+		  z-index: 0;
+		  pointer-events: none;
+		  white-space: nowrap;
+		  text-align: center;
+		}
+    </style>
+
+</head>
+<body data-duration = 4.0>
+
+
+<header class="container">
+    <div class="m-2 mb-4 text-center">
+		Śpiewnik Noobeats 
+        <!--img src="/images/ukulele-krakow.png" class="img-fluid" alt="Krakow Ukulele" width="200">-->
+    </div>
+</header>
+
+<div class="container">
+    <div class="row justify-content-center">
+        
+<div class="col-lg-8 col-md-10 col-sm-12 my-3">
+
+    <h3 class="song-title">
+        #18 I'm into you
+    </h3>
+    
+    <!--<h5 class="song-artist">
+        Chet Faker
+    </h5>
+
+    <h5>
+        Level: 
+        <span class="badge rounded-pill badge- text-white"></span>
+    </h5
+    
+    -->
+
+   <div class="mt-4" style="overflow-x: auto;">
+    
+        <img src="chords/Bb.gif" alt="Bb" title="Bb" />
+    
+        <img src="chords/Gm.gif" alt="Gm" title="Gm" />
+    
+        <img src="chords/Gm7.gif" alt="Gm7" title="Gm7" />
+    
+        <img src="chords/C.gif" alt="C" title="C" />
+    
+        <img src="chords/Dm.gif" alt="Dm" title="Dm" />
+    
+</div>
+	<!--<div id="infoBox" style="position: fixed; right: 20px; top: 20px; border: 1px solid black; padding: 10px;">
+		<p id="heightInfo"></p>
+		<p id="scrollTimeStepInfo"></p>
+		<p id="songDuration"></p>
+	</div>-->
+	<div id="floatingButton" style="position: fixed; right: 20px; bottom: 20px; z-index: 9999;">
+		<button id="myButton" onclick="toggleButton()" type="button" class="btn btn-light">
+			<img id="buttonImage" src="images/pause2.gif">
+		</button>
+	</div>
+    
+    <div id="tab">
+        <div class="section"><br/><br/><br/><br/><br/><br/>(Verse 1)<br/><span class="chord">[Dm]</span>I got a feeling we are <span class="chord">[Gm]</span>gonna <span class="chord">[Gm7]</span>win<br/><span class="chord">[Bb]</span>Our bodies make it <span class="chord">[C]</span>perfect<br/><span class="chord">[Dm]</span>And your eyes can make me swim<br/><span class="chord">[Dm]</span>Then again everything seems <span class="chord">[Gm]</span>new <span class="chord">[Gm7]</span><br/><span class="chord">[Bb]</span>I can barely hold my <span class="chord">[C]</span>tongue<br/><span class="chord">[Dm]</span>To say the least I'm into you<br/><span class="chord">[Dm]</span>And your <span class="chord">[Gm]</span>eyes <span class="chord">[Gm7]</span><br/><span class="chord">[Bb]</span>Are saying more than we can talk <span class="chord">[C]</span><br/>and warmer than our bedroom <span class="chord">[Dm]</span>sport<br/><span class="chord">[Dm]</span>And your <span class="chord">[Gm]</span>thighs <span class="chord">[Gm7]</span><br/><span class="chord">[Bb]</span>Are kisses from the outside, <span class="chord">[C]</span><br/>girl that's all I <span class="chord">[Dm]</span>need<br/><br/>(Pre-Chorus)<br/><span class="chord">[Dm]</span>I'll take you down the <span class="chord">[Gm]</span>other <span class="chord">[Gm7]</span>road<br/><span class="chord">[Bb]</span>To breathe in something <span class="chord">[C]</span>more <span class="chord">[Dm]</span><br/><span class="chord">[Dm]</span>I'll find it harder to <span class="chord">[Gm]</span>ig<span class="chord">[Gm7]</span>nore<br/><span class="chord">[Bb]</span>The things I want you <span class="chord">[C]</span>for <span class="chord">[Dm]</span><br/><br/>(Chorus)<br/><span class="chord">[Dm]</span>I know you don't want <span class="chord">[Gm]</span><br/>A love you can't sing<br/><span class="chord">[Gm7]</span>The music was at the start<br/><span class="chord">[Bb]</span>Dododododo <span class="chord">[C]</span>dododododo <span class="chord">[Dm]</span>dodo<br/><span class="chord">[Dm]</span>The rhythm was all <span class="chord">[Gm]</span><br/>I needed to hear<br/><span class="chord">[Gm7]</span>A woman can treat my heart<br/><span class="chord">[Bb]</span>Dododododo <span class="chord">[C]</span>dododododo <span class="chord">[Dm]</span>dodo<br/><br/>(Verse 2)<br/><span class="chord">[Dm]</span>When I press an ear up to your <span class="chord">[Gm]</span>breast <span class="chord">[Gm7]</span><br/><span class="chord">[Bb]</span>I can hear the rhythm <span class="chord">[C]</span>start<br/><span class="chord">[Dm]</span>It's hard to tell our beats apart<br/><span class="chord">[Dm]</span>So I hope you're listening right <span class="chord">[Gm]</span>now <span class="chord">[Gm7]</span><br/><span class="chord">[Bb]</span>Cause I can barely hold my <span class="chord">[C]</span>tongue<br/><span class="chord">[Dm]</span>The sh*t we do could warm the sun<br/><span class="chord">[Dm]</span>At <span class="chord">[Gm]</span>night <span class="chord">[Gm7]</span><br/><span class="chord">[Bb]</span>Twisted in a melting fall <span class="chord">[C]</span><br/>and sleeping with the scratching <span class="chord">[Dm]</span>claws<br/><span class="chord">[Dm]</span>And your <span class="chord">[Gm]</span>words <span class="chord">[Gm7]</span><br/><span class="chord">[Bb]</span>Let me know you're feeling me <span class="chord">[C]</span><br/>and seeing all the things I <span class="chord">[Dm]</span>see<br/><br/>(Pre-Chorus)<br/><span class="chord">[Dm]</span>I'll take you down the <span class="chord">[Gm]</span>other <span class="chord">[Gm7]</span>road<br/><span class="chord">[Bb]</span>To breathe in something <span class="chord">[C]</span>more <span class="chord">[Dm]</span><br/><span class="chord">[Dm]</span>I'll find it harder to <span class="chord">[Gm]</span>ig<span class="chord">[Gm7]</span>nore<br/><span class="chord">[Bb]</span>The things I want you <span class="chord">[C]</span>for <span class="chord">[Dm]</span><br/><br/>(Chorus)<br/><span class="chord">[Dm]</span>I know you don't want <span class="chord">[Gm]</span><br/>A love you can't sing<br/><span class="chord">[Gm7]</span>The music was at the start<br/><span class="chord">[Bb]</span>Dododododo <span class="chord">[C]</span>dododododo <span class="chord">[Dm]</span>dodo<br/><span class="chord">[Dm]</span>The rhythm was all <span class="chord">[Gm]</span><br/>I needed to hear<br/><span class="chord">[Gm7]</span>A woman can treat my heart<br/><span class="chord">[Bb]</span>Dododododo <span class="chord">[C]</span>dododododo <span class="chord">[Dm]</span>dodo</div>
+    </div>
+
+    <div id="options" class="mt-4">
+        <ul class="list-unstyled">
+            <li><a href="index.html"><strong>← Back</strong></a></li>
+         
+        </ul>
+    </div>
+
+    <hr/>
+			
+    <!--<div class="m-2 my-4 text-center">
+        <img src="/images/qrcode.png" class="img-fluid" alt="QR Code" width="200">
+    </div>-->
+
+</div>
+
+    </div>
+</div>
+
+<script>
+var scrollInterval;
+var songDuration = 3.5;
+var scrollDuration = songDuration * 60 * 1000; // x min w milisekundach - w tym czasie stronama zostac przewinięta
+//var body = document.body,
+//    html = document.documentElement;
+//var height = Math.max( Math.max( body.scrollHeight, body.offsetHeight, html.clientHeight, html.scrollHeight, html.offsetHeight ) - window.innerHeight, 1);
+var height = document.getElementById('tab').clientHeight; //wysokość boxu div tab
+var scrollTimeStep =  scrollDuration / height; // czas co jaki ma być wywołana funkcja przewijania
+function toggleButton() {
+  if (scrollInterval) { //jeśli scrollInterval był ustawiony w trakcie wywołania funkcji to zmień obraz na pauzę i wyczyść go
+    document.getElementById('buttonImage').src = 'images/pause2.gif';
+    clearInterval(scrollInterval); // Zatrzymuje autoscrollowanie
+    scrollInterval = null;
+  } else { //w przeciwnym wypadku ustaw scroll interval i przewijaj chyba ze dotrzesz do końca strony
+    document.getElementById('buttonImage').src = 'images/play2.gif';
+    scrollInterval = setInterval(function() {
+      if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight) {
+        // Jeśli strona została przewinięta do końca, zatrzymaj autoscroll po 4 sekundach
+        setTimeout(function() {
+          document.getElementById('buttonImage').src = 'images/pause2.gif';
+          clearInterval(scrollInterval);
+          scrollInterval = null;
+        }, 4000);
+      } else {
+        window.scrollBy({top: 1, behavior: "instant"}); // Uruchamia autoscrollowanie
+      }
+		height = document.getElementById('tab').clientHeight; //tylko dla infoboxa
+		scrollTimeStep =  scrollDuration / height; 
+		// Aktualizuj wartości w infoBox
+		document.getElementById('heightInfo').textContent = 'Height: ' + height;
+		document.getElementById('scrollTimeStepInfo').textContent = 'Scroll Time Step: ' + scrollTimeStep;
+		document.getElementById('songDuration').textContent= 'songDuration:' + songDuration;
+    }, scrollTimeStep);
+  }
+}
+// Zatrzymaj autoscroll, gdy strona jest opuszczana
+window.addEventListener('beforeunload', function() {
+  if (scrollInterval) {
+    clearInterval(scrollInterval);
+  }
+});
+</script>
+<script>//numerowanie tła zwrotek
+document.addEventListener("DOMContentLoaded", function () {
+  document.querySelectorAll('.section.verse[data-verse]').forEach(section => {
+    const height = section.offsetHeight;
+    const fontSize = Math.floor(height * 0.8) + "px"; // np. 80% wysokości sekcji
+
+    // twórz dynamiczny styl na pseudo-element
+    const style = document.createElement("style");
+    style.innerHTML = `
+      .section.verse[data-verse="${section.dataset.verse}"]::before {
+        font-size: ${fontSize};
+      }
+    `;
+    document.head.appendChild(style);
+  });
+});
+</script>
+</body>
+</html>
